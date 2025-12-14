@@ -1,0 +1,463 @@
+[gd_scene load_steps=46 format=3 uid="uid://cl3nkps3t2d2c"]
+
+[ext_resource type="Texture2D" uid="uid://ttlsfjdmtmhn" path="res://Сцени/Вулиця.png" id="1_dk6dy"]
+[ext_resource type="Script" uid="uid://u1tlf3f5jp2u" path="res://player.gd" id="2_7lmpd"]
+[ext_resource type="Texture2D" uid="uid://dvybl5hbdxwu3" path="res://Герои/hero.png" id="3_0c7jx"]
+[ext_resource type="Script" uid="uid://d1bfsfcrxryvd" path="res://Скрипты/car_spawner.gd" id="4_7lmpd"]
+[ext_resource type="PackedScene" uid="uid://crq81418bscru" path="res://car.tscn" id="5_0c7jx"]
+[ext_resource type="Texture2D" uid="uid://dd46t42w6ife1" path="res://Машини/Car2.png" id="6_kfixr"]
+[ext_resource type="Texture2D" uid="uid://d0i1km24n1qy" path="res://Машини/Car.png" id="7_gkmm6"]
+[ext_resource type="Script" uid="uid://bon1bat0hy215" path="res://Скрипты/game_over_modal.gd" id="8_gkmm6"]
+[ext_resource type="Script" uid="uid://brdfe6juxyvc2" path="res://Скрипты/shop.gd" id="8_jbwvu"]
+[ext_resource type="Script" uid="uid://bta3egg2a8o8a" path="res://Скрипты/npc_girl.gd" id="9_lwdo1"]
+[ext_resource type="Script" uid="uid://br6yyhjcuua48" path="res://Скрипты/hud.gd" id="9_m54cn"]
+[ext_resource type="Texture2D" uid="uid://b844aqmwon1as" path="res://Герои/npc-уличний.png" id="10_5gkhs"]
+[ext_resource type="Script" uid="uid://b36hikp4fe7n5" path="res://Скрипты/shop_modal.gd" id="10_jqrss"]
+[ext_resource type="Script" uid="uid://cq6d6bvsber0q" path="res://Скрипты/college_door.gd" id="11_0eujd"]
+[ext_resource type="Texture2D" uid="uid://bl366t8tgibt5" path="res://Другое/choose.png" id="11_lwdo1"]
+[ext_resource type="Script" uid="uid://nfqihnbsavwq" path="res://Скрипты/dialog_modal.gd" id="14_mjlgn"]
+[ext_resource type="Texture2D" uid="uid://bijyi2822smmb" path="res://Герои/npc-уличний-2.png" id="16_i1wjx"]
+[ext_resource type="Texture2D" uid="uid://dnw4dig2intwq" path="res://Герои/npc-уличний-3.png" id="17_0eujd"]
+[ext_resource type="Texture2D" uid="uid://bh20c2qov42o5" path="res://Герои/npc-уличний-4.png" id="18_adjms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83x7t"]
+size = Vector2(4, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfixr"]
+size = Vector2(6, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkmm6"]
+size = Vector2(1734.5, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbduy"]
+size = Vector2(1735, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkmm6"]
+atlas = ExtResource("3_0c7jx")
+region = Rect2(0, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp4no"]
+atlas = ExtResource("3_0c7jx")
+region = Rect2(96, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkxsu"]
+atlas = ExtResource("3_0c7jx")
+region = Rect2(192, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbwvu"]
+atlas = ExtResource("3_0c7jx")
+region = Rect2(288, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m54cn"]
+atlas = ExtResource("3_0c7jx")
+region = Rect2(384, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqrss"]
+atlas = ExtResource("3_0c7jx")
+region = Rect2(480, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwdo1"]
+atlas = ExtResource("3_0c7jx")
+region = Rect2(576, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gkhs"]
+atlas = ExtResource("3_0c7jx")
+region = Rect2(672, 0, 96, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mjlgn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkmm6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp4no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkxsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbwvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m54cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqrss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwdo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gkhs")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1wjx"]
+size = Vector2(27.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gkhs"]
+size = Vector2(156, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eujd"]
+size = Vector2(50, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adjms"]
+atlas = ExtResource("10_5gkhs")
+region = Rect2(57, 0, 57, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wh2c"]
+atlas = ExtResource("10_5gkhs")
+region = Rect2(114, 0, 57, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epv1x"]
+atlas = ExtResource("10_5gkhs")
+region = Rect2(171, 0, 57, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_snkep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adjms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wh2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epv1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wh2c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adjms"]
+size = Vector2(76, 77)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjlgn"]
+bg_color = Color(0.6313726, 0.11764706, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i1wjx"]
+texture = ExtResource("11_lwdo1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gkhs"]
+bg_color = Color(0, 0, 0, 0.61960787)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwdo1"]
+bg_color = Color(0.34605238, 0.6561284, 0.6952566, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfixr"]
+bg_color = Color(0.47291934, 0.6304188, 0.6863535, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Street" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(412, 348)
+scale = Vector2(1.289, 1.329)
+texture = ExtResource("1_dk6dy")
+
+[node name="RoadWalls" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="LeftWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(-453, 639)
+shape = SubResource("RectangleShape2D_83x7t")
+
+[node name="RightWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(1277, 645)
+shape = SubResource("RectangleShape2D_kfixr")
+
+[node name="TopWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(412.75, 564.5)
+shape = SubResource("RectangleShape2D_gkmm6")
+
+[node name="BottomWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(412.5, 716)
+shape = SubResource("RectangleShape2D_sbduy")
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerSpawn" type="Marker2D" parent="Markers"]
+position = Vector2(1252, 597)
+
+[node name="CarSpawnLeft" type="Marker2D" parent="Markers"]
+position = Vector2(-428, 678)
+
+[node name="CarSpawnRight" type="Marker2D" parent="Markers"]
+position = Vector2(1233, 670)
+
+[node name="Lane1" type="Marker2D" parent="Markers"]
+position = Vector2(200, 645)
+
+[node name="Lane2" type="Marker2D" parent="Markers"]
+position = Vector2(198, 667)
+
+[node name="Lane3" type="Marker2D" parent="Markers"]
+position = Vector2(199, 693)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(1252, 596)
+collision_mask = 6
+script = ExtResource("2_7lmpd")
+speed = 120.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-93, -37.000004)
+scale = Vector2(0.53125, 0.55421686)
+sprite_frames = SubResource("SpriteFrames_mjlgn")
+animation = &"idle"
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-99.25, -1)
+shape = SubResource("RectangleShape2D_i1wjx")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-100, 0)
+limit_left = -453
+limit_top = -19
+limit_right = 1277
+limit_bottom = 714
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="Cars" type="Node2D" parent="."]
+position = Vector2(-66, -56)
+
+[node name="CarSpawner" type="Node2D" parent="."]
+position = Vector2(64, -54)
+script = ExtResource("4_7lmpd")
+car_scene = ExtResource("5_0c7jx")
+car_textures = Array[Texture2D]([ExtResource("6_kfixr"), ExtResource("7_gkmm6")])
+
+[node name="Timer" type="Timer" parent="CarSpawner"]
+
+[node name="Interactables" type="Node2D" parent="."]
+position = Vector2(-41, 50)
+
+[node name="Shop" type="Area2D" parent="Interactables"]
+position = Vector2(-108, 3)
+script = ExtResource("8_jbwvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Shop"]
+position = Vector2(870, 456.5)
+shape = SubResource("RectangleShape2D_5gkhs")
+
+[node name="NPC_Girl" type="Area2D" parent="Interactables"]
+position = Vector2(-85, 78)
+script = ExtResource("9_lwdo1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/NPC_Girl"]
+position = Vector2(439, 424.5)
+shape = SubResource("RectangleShape2D_0eujd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactables/NPC_Girl"]
+process_mode = 3
+auto_translate_mode = 1
+position = Vector2(436, 429)
+scale = Vector2(1.3245614, 1.3870968)
+sprite_frames = SubResource("SpriteFrames_snkep")
+
+[node name="CollegeDoor" type="Area2D" parent="Interactables"]
+position = Vector2(123, 26)
+script = ExtResource("11_0eujd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/CollegeDoor"]
+position = Vector2(75, 406.5)
+shape = SubResource("RectangleShape2D_adjms")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_m54cn")
+
+[node name="VirtualJoystick" type="Control" parent="UI/HUD"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Outer" type="TextureRect" parent="UI/HUD/VirtualJoystick"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inner" type="TextureRect" parent="UI/HUD/VirtualJoystick"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShopModal" type="Panel" parent="UI/HUD"]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_left = 280.0
+offset_top = 154.0
+offset_right = 947.0
+offset_bottom = 603.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mjlgn")
+script = ExtResource("10_jqrss")
+
+[node name="ShopModal" type="Panel" parent="UI/HUD/ShopModal"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 11.0
+offset_right = 655.0
+offset_bottom = 460.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_i1wjx")
+
+[node name="YesBtn" type="Button" parent="UI/HUD/ShopModal"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 364.0
+offset_right = 283.0
+offset_bottom = 427.0
+theme_override_font_sizes/font_size = 40
+text = "Так"
+
+[node name="NoBtn" type="Button" parent="UI/HUD/ShopModal"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 363.0
+offset_right = 631.0
+offset_bottom = 427.0
+theme_override_font_sizes/font_size = 40
+text = "Ні"
+
+[node name="DialogModal" type="Panel" parent="UI/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 346.0
+offset_top = 289.0
+offset_right = 929.0
+offset_bottom = 509.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5gkhs")
+script = ExtResource("14_mjlgn")
+
+[node name="Name" type="Label" parent="UI/HUD/DialogModal"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 37.0
+offset_right = 160.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 40
+text = "ЧТОТ"
+uppercase = true
+
+[node name="Text" type="Label" parent="UI/HUD/DialogModal"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 100.0
+offset_right = 152.0
+offset_bottom = 123.0
+text = "ываываыва"
+
+[node name="NextBtn" type="Button" parent="UI/HUD/DialogModal"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 145.0
+offset_right = 547.0
+offset_bottom = 195.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lwdo1")
+
+[node name="GameOverModal" type="Panel" parent="UI/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 312.0
+offset_top = 124.0
+offset_right = 963.0
+offset_bottom = 554.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kfixr")
+script = ExtResource("8_gkmm6")
+
+[node name="Text" type="Label" parent="UI/HUD/GameOverModal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.94600004
+anchor_top = 0.105000004
+anchor_right = 0.94600004
+anchor_bottom = 0.105000004
+offset_left = -610.846
+offset_top = -0.15000153
+offset_right = 31.153992
+offset_bottom = 82.85
+theme_override_font_sizes/font_size = 60
+text = "ВИ ПРОГРАЛИ!"
+horizontal_alignment = 1
+
+[node name="RestartBtn" type="Button" parent="UI/HUD/GameOverModal"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 317.0
+offset_right = 593.0
+offset_bottom = 398.0
+theme_override_font_sizes/font_size = 35
+text = "Почати спочатку"
+
+[node name="Text2" type="Label" parent="UI/HUD/GameOverModal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.94600004
+anchor_top = 0.105000004
+anchor_right = 0.94600004
+anchor_bottom = 0.105000004
+offset_left = -611.846
+offset_top = 75.85
+offset_right = 22.153992
+offset_bottom = 158.85
+theme_override_font_sizes/font_size = 40
+text = "Уважно на дорогу)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text3" type="Label" parent="UI/HUD/GameOverModal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.94600004
+anchor_top = 0.105000004
+anchor_right = 0.94600004
+anchor_bottom = 0.105000004
+offset_left = -510.846
+offset_top = 122.85
+offset_right = -100.84601
+offset_bottom = 205.85
+theme_override_font_sizes/font_size = 20
+text = "вас збила машина"
+horizontal_alignment = 1
+
+[node name="NpcУличний2" type="Sprite2D" parent="."]
+position = Vector2(88.00001, 559.25)
+scale = Vector2(0.17156863, 0.13807186)
+texture = ExtResource("16_i1wjx")
+
+[node name="NpcУличний3" type="Sprite2D" parent="."]
+position = Vector2(11, 570.00006)
+scale = Vector2(0.15073529, 0.12826784)
+texture = ExtResource("17_0eujd")
+
+[node name="NpcУличний4" type="Sprite2D" parent="."]
+position = Vector2(50.000015, 558)
+scale = Vector2(0.13112746, 0.13316993)
+texture = ExtResource("18_adjms")

@@ -1,0 +1,268 @@
+[gd_scene load_steps=21 format=3 uid="uid://b7fu62yjx57de"]
+
+[ext_resource type="Texture2D" uid="uid://cr24f4mq64fn5" path="res://Сцени/Зона отдыха.jpg" id="1_rpi1x"]
+[ext_resource type="Texture2D" uid="uid://cesb8aee0y0aa" path="res://Герои/eva.png" id="2_g5jrn"]
+[ext_resource type="Texture2D" uid="uid://c8a4ckx0fl6c4" path="res://Герои/lera.png" id="3_4hoj6"]
+[ext_resource type="Texture2D" uid="uid://58wqjo510sd4" path="res://Герои/serhii.png" id="4_wfk3b"]
+[ext_resource type="Script" uid="uid://u1tlf3f5jp2u" path="res://player.gd" id="5_noiyu"]
+[ext_resource type="Texture2D" uid="uid://dvybl5hbdxwu3" path="res://Герои/hero.png" id="6_k3lh4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fryg3"]
+bg_color = Color(0.30588236, 0.5019608, 0.77254903, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3lh4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nebl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w0l1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkmm6"]
+atlas = ExtResource("6_k3lh4")
+region = Rect2(0, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp4no"]
+atlas = ExtResource("6_k3lh4")
+region = Rect2(96, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkxsu"]
+atlas = ExtResource("6_k3lh4")
+region = Rect2(192, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbwvu"]
+atlas = ExtResource("6_k3lh4")
+region = Rect2(288, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m54cn"]
+atlas = ExtResource("6_k3lh4")
+region = Rect2(384, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqrss"]
+atlas = ExtResource("6_k3lh4")
+region = Rect2(480, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwdo1"]
+atlas = ExtResource("6_k3lh4")
+region = Rect2(576, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gkhs"]
+atlas = ExtResource("6_k3lh4")
+region = Rect2(672, 0, 96, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5nebl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkmm6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp4no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkxsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbwvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m54cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqrss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwdo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gkhs")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5w0l1"]
+size = Vector2(75, 42.5)
+
+[node name="ChillZone" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(641, 359.36075)
+scale = Vector2(0.9984375, 0.8402362)
+texture = ExtResource("1_rpi1x")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ChooseModal" type="Control" parent="UI/HUD"]
+anchors_preset = 0
+offset_left = 288.0
+offset_top = 148.0
+offset_right = 1098.0
+offset_bottom = 613.0
+
+[node name="Panel" type="Panel" parent="UI/HUD/ChooseModal"]
+layout_mode = 0
+offset_left = -3.0
+offset_right = 760.0
+offset_bottom = 423.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fryg3")
+
+[node name="Label" type="Label" parent="UI/HUD/ChooseModal/Panel"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 26.0
+offset_right = 722.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 40
+text = "ВІТАЄМО В КІМНАТІ ВІДПОЧИНКУ
+Що ти хочеш зробити?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Eat" type="Button" parent="UI/HUD/ChooseModal/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.039
+anchor_bottom = 0.061000004
+offset_left = 53.0
+offset_top = 165.0
+offset_right = 696.243
+offset_bottom = 213.173
+theme_override_font_sizes/font_size = 30
+text = "🥪 Сісти їсти бутерброд"
+
+[node name="Talk" type="Button" parent="UI/HUD/ChooseModal/Panel"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 257.0
+offset_right = 725.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 30
+text = "🗣 Поговорити з кимось"
+
+[node name="Chill" type="Button" parent="UI/HUD/ChooseModal/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.062000003
+anchor_bottom = 0.059000004
+offset_left = 55.0
+offset_top = 335.0
+offset_right = 677.694
+offset_bottom = 369.987
+theme_override_font_sizes/font_size = 30
+text = "😴 Просто відпочити"
+
+[node name="DialogModal" type="Control" parent="UI/HUD"]
+anchors_preset = 0
+offset_left = 183.0
+offset_top = 85.0
+offset_right = 1170.0
+offset_bottom = 676.0
+
+[node name="Panel" type="Panel" parent="UI/HUD/DialogModal"]
+layout_mode = 0
+offset_right = 1012.0
+offset_bottom = 552.0
+
+[node name="Portrait" type="TextureRect" parent="UI/HUD/DialogModal/Panel"]
+layout_mode = 0
+offset_left = 697.0
+offset_top = 26.0
+offset_right = 992.0
+offset_bottom = 540.0
+expand_mode = 4
+stretch_mode = 5
+
+[node name="LabelText" type="Label" parent="UI/HUD/DialogModal/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.020000001
+anchor_bottom = 0.042000003
+offset_left = 47.0
+offset_top = 53.0
+offset_right = 663.76
+offset_bottom = 272.816
+autowrap_mode = 2
+
+[node name="Btn1" type="Button" parent="UI/HUD/DialogModal/Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 459.0
+offset_right = 659.0
+offset_bottom = 524.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3lh4")
+
+[node name="Btn2" type="Button" parent="UI/HUD/DialogModal/Panel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 390.0
+offset_right = 659.0
+offset_bottom = 450.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5nebl")
+
+[node name="Btn3" type="Button" parent="UI/HUD/DialogModal/Panel"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 325.0
+offset_right = 658.0
+offset_bottom = 381.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5w0l1")
+
+[node name="Actors" type="Node2D" parent="."]
+
+[node name="Eva" type="Sprite2D" parent="Actors"]
+position = Vector2(169.00003, 573)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_g5jrn")
+
+[node name="Lera" type="Sprite2D" parent="Actors"]
+position = Vector2(235.00002, 566)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_4hoj6")
+
+[node name="Serhii" type="Sprite2D" parent="Actors"]
+position = Vector2(112, 563)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_wfk3b")
+
+[node name="Player" type="CharacterBody2D" parent="Actors"]
+z_index = 2
+position = Vector2(1151, 473)
+collision_mask = 6
+script = ExtResource("5_noiyu")
+speed = 200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors/Player"]
+position = Vector2(-699.99994, 59.99999)
+scale = Vector2(-1.401, 1.386)
+skew = 0.017453292
+sprite_frames = SubResource("SpriteFrames_5nebl")
+animation = &"idle"
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Player"]
+position = Vector2(-684, 141.75)
+shape = SubResource("RectangleShape2D_5w0l1")
+
+[node name="Camera2D" type="Camera2D" parent="Actors/Player"]
+position = Vector2(-736, 64)
+limit_left = 3
+limit_top = 4
+limit_right = 1281
+limit_bottom = 717
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0

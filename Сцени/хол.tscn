@@ -1,0 +1,461 @@
+[gd_scene load_steps=44 format=3 uid="uid://byg10xv25oa24"]
+
+[ext_resource type="Texture2D" uid="uid://yxsfa4x16do7" path="res://Сцени/Хол.png" id="1_cc6st"]
+[ext_resource type="Script" uid="uid://u1tlf3f5jp2u" path="res://player.gd" id="2_8b5p3"]
+[ext_resource type="Texture2D" uid="uid://dvybl5hbdxwu3" path="res://Герои/hero.png" id="3_21ckx"]
+[ext_resource type="Texture2D" uid="uid://ds2cu8tevwfsy" path="res://Герои/npc-хол-2.png" id="4_21ckx"]
+[ext_resource type="Texture2D" uid="uid://dl4is2e3mkhsm" path="res://Герои/npc-хол-1.png" id="5_h713a"]
+[ext_resource type="Script" uid="uid://okefenbm4rx" path="res://Сцени/exclamation.gd" id="6_7e5bp"]
+[ext_resource type="Script" uid="uid://bmf30wyl7mc7j" path="res://Сцени/arrow_left.gd" id="7_mtk4j"]
+[ext_resource type="Script" uid="uid://culgt32wsyb0r" path="res://Сцени/question_modal.gd" id="7_qjllj"]
+[ext_resource type="Texture2D" uid="uid://dfv35brfr56q3" path="res://Другое/rozklad.png" id="8_qjllj"]
+[ext_resource type="Script" uid="uid://b1d2j4s8nvv54" path="res://Сцени/arrow_up.gd" id="8_xc1xh"]
+[ext_resource type="Script" uid="uid://b57r58gdo1d4w" path="res://Сцени/arrow_right.gd" id="9_25rrl"]
+[ext_resource type="Script" uid="uid://d0yf2scsq7wqt" path="res://Сцени/phone_modal.gd" id="9_wsfr0"]
+[ext_resource type="Texture2D" uid="uid://cc3qphwnh4jeo" path="res://Другое/телефон.png" id="10_a5vsy"]
+[ext_resource type="Script" uid="uid://baobjnbtre238" path="res://Сцени/schedule_modal.gd" id="11_83l0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h713a"]
+size = Vector2(4, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr75b"]
+size = Vector2(10, 172.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e5bp"]
+size = Vector2(2149.25, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w24wd"]
+size = Vector2(2145, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21ckx"]
+size = Vector2(64, 35.625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkmm6"]
+atlas = ExtResource("3_21ckx")
+region = Rect2(0, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp4no"]
+atlas = ExtResource("3_21ckx")
+region = Rect2(96, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkxsu"]
+atlas = ExtResource("3_21ckx")
+region = Rect2(192, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbwvu"]
+atlas = ExtResource("3_21ckx")
+region = Rect2(288, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m54cn"]
+atlas = ExtResource("3_21ckx")
+region = Rect2(384, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqrss"]
+atlas = ExtResource("3_21ckx")
+region = Rect2(480, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwdo1"]
+atlas = ExtResource("3_21ckx")
+region = Rect2(576, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gkhs"]
+atlas = ExtResource("3_21ckx")
+region = Rect2(672, 0, 96, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjllj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkmm6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp4no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkxsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbwvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m54cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqrss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwdo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gkhs")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwddm"]
+size = Vector2(75, 17.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjllj"]
+size = Vector2(62, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etg2f"]
+size = Vector2(43, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5fkn"]
+size = Vector2(35, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6vjs"]
+size = Vector2(52, 36)
+
+[sub_resource type="GDScript" id="GDScript_83l0r"]
+script/source = "extends Control
+
+@onready var exclamation: Area2D = $\"../../Interactables/Exclamation\"
+@onready var question: Control = $QuestionModal
+@onready var phone: Control = $PhoneModal
+@onready var schedule: Control = $ScheduleModal
+
+func _ready() -> void:
+	# --- Восклицательный знак ---
+	exclamation.exclamation_pressed.connect(_on_exclamation_pressed)
+
+	# --- Модалка вопроса ---
+	question.curator_pressed.connect(_on_choose_curator)
+	question.group_pressed.connect(_on_choose_group)
+	question.schedule_pressed.connect(_on_choose_schedule)
+	question.closed.connect(_on_any_modal_closed)
+
+	# --- Телефон ---
+	phone.closed.connect(_on_any_modal_closed)
+
+	# --- Розклад ---
+	schedule.closed.connect(_on_any_modal_closed)
+
+
+func _on_exclamation_pressed() -> void:
+	get_tree().paused = true
+	question.open()
+
+
+func _on_choose_curator() -> void:
+	question.close()
+	phone.open(\"t\")
+
+
+func _on_choose_group() -> void:
+	question.close()
+	phone.open(\"g\")
+
+
+func _on_choose_schedule() -> void:
+	question.close()
+	schedule.open()
+
+
+func _on_any_modal_closed() -> void:
+	if not question.visible and not phone.visible and not schedule.visible:
+		get_tree().paused = false
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwddm"]
+bg_color = Color(0.35686275, 0.35686275, 0.35686275, 0.9098039)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5vsy"]
+bg_color = Color(0.39215687, 0.4627451, 0.49019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsfr0"]
+bg_color = Color(0.39215687, 0.4627451, 0.49019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83l0r"]
+bg_color = Color(0.39215687, 0.4627451, 0.49019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtk4j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wsfr0"]
+texture = ExtResource("10_a5vsy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc1xh"]
+bg_color = Color(0.24313726, 0.38039216, 0.5372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25rrl"]
+bg_color = Color(0.13333334, 0.18039216, 0.22745098, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5vsy"]
+texture = ExtResource("8_qjllj")
+
+[node name="Хол" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1077, 357)
+scale = Vector2(1.289, 1.329)
+texture = ExtResource("1_cc6st")
+
+[node name="RoadWalls" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="LeftWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(-1, 647.5)
+shape = SubResource("RectangleShape2D_h713a")
+
+[node name="RightWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(2141, 642.25)
+shape = SubResource("RectangleShape2D_fr75b")
+
+[node name="TopWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(1072.375, 554)
+shape = SubResource("RectangleShape2D_7e5bp")
+
+[node name="BottomWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(1069.5, 724.5)
+shape = SubResource("RectangleShape2D_w24wd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(402, 576.1875)
+shape = SubResource("RectangleShape2D_21ckx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(1371, 576)
+shape = SubResource("RectangleShape2D_21ckx")
+
+[node name="Actors" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" type="CharacterBody2D" parent="Actors"]
+z_index = 2
+position = Vector2(1252, 596)
+collision_mask = 6
+script = ExtResource("2_8b5p3")
+speed = 200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors/Player"]
+position = Vector2(-1081.2499, -40.00001)
+scale = Vector2(1.4010404, 1.3855424)
+sprite_frames = SubResource("SpriteFrames_qjllj")
+animation = &"idle"
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Player"]
+position = Vector2(-1094.5, 52.25)
+shape = SubResource("RectangleShape2D_xwddm")
+
+[node name="Camera2D" type="Camera2D" parent="Actors/Player"]
+position = Vector2(-1098, -58)
+limit_left = 0
+limit_top = -19
+limit_right = 2150
+limit_bottom = 714
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="NpcХол2" type="Sprite2D" parent="Actors"]
+position = Vector2(402, 483.00003)
+scale = Vector2(0.33823523, 0.34477124)
+texture = ExtResource("4_21ckx")
+
+[node name="NpcХол1" type="Sprite2D" parent="Actors"]
+position = Vector2(1367.0001, 485)
+scale = Vector2(0.39950982, 0.37745097)
+texture = ExtResource("5_h713a")
+
+[node name="SpawnFromRight" type="Marker2D" parent="Actors"]
+position = Vector2(2562, 621)
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Exclamation" type="Area2D" parent="Interactables"]
+script = ExtResource("6_7e5bp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Exclamation"]
+position = Vector2(1721, 485)
+shape = SubResource("RectangleShape2D_qjllj")
+
+[node name="ArrowLeft" type="Area2D" parent="Interactables"]
+script = ExtResource("7_mtk4j")
+target_scene = "res://Сцени/1этажналево.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowLeft"]
+position = Vector2(1651, 397)
+shape = SubResource("RectangleShape2D_etg2f")
+
+[node name="ArrowUp" type="Area2D" parent="Interactables"]
+script = ExtResource("8_xc1xh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowUp"]
+position = Vector2(1718.5, 341.5)
+shape = SubResource("RectangleShape2D_w5fkn")
+
+[node name="ArrowRight" type="Area2D" parent="Interactables"]
+script = ExtResource("9_25rrl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowRight"]
+position = Vector2(1786, 395)
+shape = SubResource("RectangleShape2D_m6vjs")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_83l0r")
+
+[node name="QuestionModal" type="Control" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 249.0
+offset_top = 211.0
+offset_right = 884.0
+offset_bottom = 532.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_qjllj")
+
+[node name="Panel" type="Panel" parent="UI/HUD/QuestionModal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.7520003
+anchor_top = 3.15
+anchor_right = 6.7520003
+anchor_bottom = 3.15
+offset_left = -4548.6
+offset_top = -1098.15
+offset_right = -3789.6
+offset_bottom = -842.15
+theme_override_styles/panel = SubResource("StyleBoxFlat_xwddm")
+
+[node name="Label" type="Label" parent="UI/HUD/QuestionModal/Panel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 77.0
+offset_right = 703.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 40
+text = "Яким чином дізнатися, де пара?"
+
+[node name="BtnCurator" type="Button" parent="UI/HUD/QuestionModal/Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 176.0
+offset_right = 241.0
+offset_bottom = 229.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_a5vsy")
+text = "У куратора"
+
+[node name="BtnGroup" type="Button" parent="UI/HUD/QuestionModal/Panel"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 176.0
+offset_right = 462.0
+offset_bottom = 229.0
+theme_override_colors/icon_normal_color = Color(0.39215687, 0.4627451, 0.49019608, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wsfr0")
+text = "У одногрупника"
+
+[node name="BtnSchedule" type="Button" parent="UI/HUD/QuestionModal/Panel"]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 176.0
+offset_right = 678.0
+offset_bottom = 229.0
+theme_override_colors/icon_normal_color = Color(0.39215687, 0.4627451, 0.49019608, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_83l0r")
+text = "Подивитися у розклад"
+
+[node name="CloseBtn" type="Button" parent="UI/HUD/QuestionModal/Panel"]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 25.0
+offset_right = 737.0
+offset_bottom = 61.0
+theme_override_colors/icon_normal_color = Color(0.39215687, 0.4627451, 0.49019608, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mtk4j")
+text = "✕"
+
+[node name="PhoneModal" type="Control" parent="UI/HUD"]
+anchors_preset = 0
+offset_left = 1612.0
+offset_top = 356.0
+offset_right = 1652.0
+offset_bottom = 396.0
+script = ExtResource("9_wsfr0")
+
+[node name="Panel" type="Panel" parent="UI/HUD/PhoneModal"]
+layout_mode = 0
+offset_left = -1171.0
+offset_top = -313.0
+offset_right = -740.0
+offset_bottom = 346.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wsfr0")
+
+[node name="CloseBtn" type="Button" parent="UI/HUD/PhoneModal/Panel"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 563.0
+offset_right = 277.0
+offset_bottom = 617.0
+text = "✕"
+
+[node name="Label" type="Label" parent="UI/HUD/PhoneModal/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 141.0
+offset_top = 382.0
+offset_right = 363.0
+offset_bottom = 405.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xc1xh")
+text = "а де пара?"
+
+[node name="Label2" type="Label" parent="UI/HUD/PhoneModal/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 61.0
+offset_top = 437.0
+offset_right = 290.0
+offset_bottom = 460.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_25rrl")
+text = "я сам не знаю :("
+
+[node name="ScheduleModal" type="Control" parent="UI/HUD"]
+visible = false
+anchors_preset = 0
+offset_left = -117.0
+offset_top = 44.0
+offset_right = -77.0
+offset_bottom = 84.0
+script = ExtResource("11_83l0r")
+
+[node name="Panel" type="Panel" parent="UI/HUD/ScheduleModal"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = -20.0
+offset_right = 1290.0
+offset_bottom = 645.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5vsy")
+
+[node name="CloseBtn" type="Button" parent="UI/HUD/ScheduleModal/Panel"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 19.0
+offset_right = 1035.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.39215687, 0.4627451, 0.49019608, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_mtk4j")
+text = "✕"
