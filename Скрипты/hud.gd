@@ -1,12 +1,17 @@
 extends Control
 
 @onready var shop_area: Area2D = $"../../Interactables/Shop"
+@onready var shop_areaF: Sprite2D = $"../../Interactables/Shop/!"
 @onready var shop_modal: Control = $ShopModal
 @onready var game_over: Control = $GameOverModal
 
 @onready var npc: Area2D = $"../../Interactables/NPC_Girl"
+@onready var npcF: Sprite2D = $"../../Interactables/NPC_Girl/!"
 @onready var dialog: Control = $DialogModal
 
+@onready var coin_label = $CoinLabel
+
+	
 func _ready() -> void:
 	shop_area.shop_pressed.connect(_on_shop_pressed)
 
@@ -17,9 +22,11 @@ func _ready() -> void:
 
 func _on_shop_pressed() -> void:
 	shop_modal.open()
+	shop_areaF.visible = false
 func _on_npc_pressed() -> void:
 	# ставим паузу
 	get_tree().paused = true
+	npcF.visible = false
 
 	# реплики (любые, я придумал короткий диалог с вариантом ответа в следующем шаге)
 	var lines: Array[String] = [

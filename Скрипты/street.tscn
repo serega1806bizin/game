@@ -1,6 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://cl3nkps3t2d2c"]
+[gd_scene load_steps=51 format=3 uid="uid://cl3nkps3t2d2c"]
 
 [ext_resource type="Texture2D" uid="uid://ttlsfjdmtmhn" path="res://Сцени/Вулиця.png" id="1_dk6dy"]
+[ext_resource type="Script" uid="uid://chcnhf7nnisgh" path="res://Скрипты/street.gd" id="1_epv1x"]
 [ext_resource type="Script" uid="uid://u1tlf3f5jp2u" path="res://player.gd" id="2_7lmpd"]
 [ext_resource type="Texture2D" uid="uid://dvybl5hbdxwu3" path="res://Герои/hero.png" id="3_0c7jx"]
 [ext_resource type="Script" uid="uid://d1bfsfcrxryvd" path="res://Скрипты/car_spawner.gd" id="4_7lmpd"]
@@ -11,14 +12,17 @@
 [ext_resource type="Script" uid="uid://brdfe6juxyvc2" path="res://Скрипты/shop.gd" id="8_jbwvu"]
 [ext_resource type="Script" uid="uid://bta3egg2a8o8a" path="res://Скрипты/npc_girl.gd" id="9_lwdo1"]
 [ext_resource type="Script" uid="uid://br6yyhjcuua48" path="res://Скрипты/hud.gd" id="9_m54cn"]
-[ext_resource type="Texture2D" uid="uid://b844aqmwon1as" path="res://Герои/npc-уличний.png" id="10_5gkhs"]
+[ext_resource type="Texture2D" uid="uid://b844aqmwon1as" path="res://Герои/npc-уличний.png" id="10_5gkhs"]
 [ext_resource type="Script" uid="uid://b36hikp4fe7n5" path="res://Скрипты/shop_modal.gd" id="10_jqrss"]
+[ext_resource type="Texture2D" uid="uid://b54et22w2o1j2" path="res://Другое/a1c8a9a7adb41f723b6a7aa084b55aef-removebg-preview.png" id="10_snkep"]
 [ext_resource type="Script" uid="uid://cq6d6bvsber0q" path="res://Скрипты/college_door.gd" id="11_0eujd"]
 [ext_resource type="Texture2D" uid="uid://bl366t8tgibt5" path="res://Другое/choose.png" id="11_lwdo1"]
 [ext_resource type="Script" uid="uid://nfqihnbsavwq" path="res://Скрипты/dialog_modal.gd" id="14_mjlgn"]
-[ext_resource type="Texture2D" uid="uid://bijyi2822smmb" path="res://Герои/npc-уличний-2.png" id="16_i1wjx"]
-[ext_resource type="Texture2D" uid="uid://dnw4dig2intwq" path="res://Герои/npc-уличний-3.png" id="17_0eujd"]
-[ext_resource type="Texture2D" uid="uid://bh20c2qov42o5" path="res://Герои/npc-уличний-4.png" id="18_adjms"]
+[ext_resource type="Texture2D" uid="uid://bijyi2822smmb" path="res://Герои/npc-уличний-2.png" id="16_i1wjx"]
+[ext_resource type="Texture2D" uid="uid://dnw4dig2intwq" path="res://Герои/npc-уличний-3.png" id="17_0eujd"]
+[ext_resource type="Texture2D" uid="uid://bh20c2qov42o5" path="res://Герои/npc-уличний-4.png" id="18_adjms"]
+[ext_resource type="Script" uid="uid://cd0qpviu4ub7y" path="res://Скрипты/coin.gd" id="20_adjms"]
+[ext_resource type="Texture2D" uid="uid://di4i3uxlxkut8" path="res://photo_ygki-removebg-preview.png" id="22_snkep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83x7t"]
 size = Vector2(4, 160)
@@ -168,7 +172,11 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3wh2c"]
+radius = 23.194826
+
 [node name="Street" type="Node2D"]
+script = ExtResource("1_epv1x")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(412, 348)
@@ -262,6 +270,11 @@ script = ExtResource("8_jbwvu")
 position = Vector2(870, 456.5)
 shape = SubResource("RectangleShape2D_5gkhs")
 
+[node name="!" type="Sprite2D" parent="Interactables/Shop"]
+position = Vector2(834, 398)
+scale = Vector2(0.18611111, 0.23333333)
+texture = ExtResource("10_snkep")
+
 [node name="NPC_Girl" type="Area2D" parent="Interactables"]
 position = Vector2(-85, 78)
 script = ExtResource("9_lwdo1")
@@ -277,6 +290,11 @@ position = Vector2(436, 429)
 scale = Vector2(1.3245614, 1.3870968)
 sprite_frames = SubResource("SpriteFrames_snkep")
 
+[node name="!" type="Sprite2D" parent="Interactables/NPC_Girl"]
+position = Vector2(435.00006, 367)
+scale = Vector2(0.18611111, 0.23333333)
+texture = ExtResource("10_snkep")
+
 [node name="CollegeDoor" type="Area2D" parent="Interactables"]
 position = Vector2(123, 26)
 script = ExtResource("11_0eujd")
@@ -284,6 +302,11 @@ script = ExtResource("11_0eujd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/CollegeDoor"]
 position = Vector2(75, 406.5)
 shape = SubResource("RectangleShape2D_adjms")
+
+[node name="!" type="Sprite2D" parent="Interactables/CollegeDoor"]
+position = Vector2(76.00006, 406.99997)
+scale = Vector2(0.18611111, 0.23333333)
+texture = ExtResource("10_snkep")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -461,3 +484,134 @@ texture = ExtResource("17_0eujd")
 position = Vector2(50.000015, 558)
 scale = Vector2(0.13112746, 0.13316993)
 texture = ExtResource("18_adjms")
+
+[node name="Coin" type="Area2D" parent="."]
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[node name="Coin2" type="Area2D" parent="."]
+position = Vector2(-300, 0)
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[node name="Coin3" type="Area2D" parent="."]
+position = Vector2(-200, 0)
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[node name="Coin4" type="Area2D" parent="."]
+position = Vector2(-101, 0)
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin4"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin4"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[node name="Coin5" type="Area2D" parent="."]
+position = Vector2(-900, 0)
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin5"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin5"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[node name="Coin6" type="Area2D" parent="."]
+position = Vector2(-800, 0)
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin6"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin6"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[node name="Coin7" type="Area2D" parent="."]
+position = Vector2(-700, 0)
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin7"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin7"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[node name="Coin8" type="Area2D" parent="."]
+position = Vector2(-600, 0)
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin8"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin8"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[node name="Coin9" type="Area2D" parent="."]
+position = Vector2(-500, 0)
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin9"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin9"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[node name="Coin10" type="Area2D" parent="."]
+position = Vector2(-400, 0)
+script = ExtResource("20_adjms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin10"]
+position = Vector2(1070.875, 597.375)
+scale = Vector2(0.17352316, 0.1421103)
+texture = ExtResource("22_snkep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin10"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_3wh2c")
+
+[connection signal="collected" from="Coin" to="." method="_on_coin_collected"]
