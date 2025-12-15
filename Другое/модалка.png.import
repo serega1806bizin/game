@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b844aqmwon1as"
-path="res://.godot/imported/npc-уличний.png-7082f765bc2b37c8501ac62ba0c9997b.ctex"
+uid="uid://diqgdtor2susu"
+path="res://.godot/imported/модалка.png-5f580d0199e839803fe7298ec29ed989.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Герои/npc-уличний.png"
-dest_files=["res://.godot/imported/npc-уличний.png-7082f765bc2b37c8501ac62ba0c9997b.ctex"]
+source_file="res://Другое/модалка.png"
+dest_files=["res://.godot/imported/модалка.png-5f580d0199e839803fe7298ec29ed989.ctex"]
 
 [params]
 

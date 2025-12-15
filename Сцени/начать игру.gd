@@ -1,0 +1,1 @@
+res://Скрипты/street.tscn
