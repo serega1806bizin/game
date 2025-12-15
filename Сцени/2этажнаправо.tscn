@@ -1,0 +1,271 @@
+[gd_scene load_steps=26 format=3 uid="uid://ddth1ph6b8cev"]
+
+[ext_resource type="Texture2D" uid="uid://b1j128b33bwj" path="res://Сцени/2этажнаправо.png" id="1_v87cx"]
+[ext_resource type="Script" uid="uid://u1tlf3f5jp2u" path="res://player.gd" id="2_1njau"]
+[ext_resource type="Texture2D" uid="uid://dvybl5hbdxwu3" path="res://Герои/hero.png" id="3_80lan"]
+[ext_resource type="Script" uid="uid://dkpebg5kvofij" path="res://Сцени/hud645.gd" id="4_v87cx"]
+[ext_resource type="Script" uid="uid://dh1xoy4otfh5s" path="res://Сцени/closed_modal.gd" id="5_ymhx1"]
+[ext_resource type="Texture2D" uid="uid://cxx1ufi75jlp7" path="res://Другое/Закрито.jpeg" id="6_rq5tr"]
+[ext_resource type="Script" uid="uid://b1d2j4s8nvv54" path="res://Сцени/arrow_up.gd" id="7_2rksx"]
+[ext_resource type="Script" uid="uid://b5nhekwsgec4h" path="res://Сцени/closed_door.gd" id="8_ydoap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an4q3"]
+size = Vector2(18, 225.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2akgh"]
+size = Vector2(2385, 20.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ynml"]
+size = Vector2(2398, 7.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swmqh"]
+size = Vector2(13, 226)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkmm6"]
+atlas = ExtResource("3_80lan")
+region = Rect2(0, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp4no"]
+atlas = ExtResource("3_80lan")
+region = Rect2(96, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkxsu"]
+atlas = ExtResource("3_80lan")
+region = Rect2(192, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbwvu"]
+atlas = ExtResource("3_80lan")
+region = Rect2(288, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m54cn"]
+atlas = ExtResource("3_80lan")
+region = Rect2(384, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqrss"]
+atlas = ExtResource("3_80lan")
+region = Rect2(480, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwdo1"]
+atlas = ExtResource("3_80lan")
+region = Rect2(576, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gkhs"]
+atlas = ExtResource("3_80lan")
+region = Rect2(672, 0, 96, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbisx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkmm6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp4no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkxsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbwvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m54cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqrss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwdo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gkhs")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtct"]
+size = Vector2(120.25, 30.25)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01kpt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1ktv"]
+size = Vector2(99, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5mmk"]
+size = Vector2(208, 375)
+
+[node name="2этажнаправо" type="Node2D"]
+position = Vector2(194, 3)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1000.0001, 360)
+scale = Vector2(1.289, 1.329)
+texture = ExtResource("1_v87cx")
+
+[node name="RoadWalls" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="LeftWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(2193, 627.625)
+shape = SubResource("RectangleShape2D_an4q3")
+
+[node name="TopWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(999.5, 528.125)
+shape = SubResource("RectangleShape2D_2akgh")
+
+[node name="BottomWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(1004, 738.375)
+shape = SubResource("RectangleShape2D_8ynml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(-190, 624)
+shape = SubResource("RectangleShape2D_swmqh")
+
+[node name="Actors" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" type="CharacterBody2D" parent="Actors"]
+z_index = 2
+position = Vector2(1151, 472)
+collision_mask = 6
+script = ExtResource("2_1njau")
+speed = 200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors/Player"]
+position = Vector2(-1169.625, -34.000004)
+scale = Vector2(2.1796868, 2.0963857)
+sprite_frames = SubResource("SpriteFrames_hbisx")
+animation = &"idle"
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Player"]
+position = Vector2(-1190.125, 105)
+shape = SubResource("RectangleShape2D_tdtct")
+
+[node name="Camera2D" type="Camera2D" parent="Actors/Player"]
+position = Vector2(-1000, -58)
+limit_left = 3
+limit_top = -14
+limit_right = 2388
+limit_bottom = 745
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 194.0
+offset_top = 3.0
+offset_right = 234.0
+offset_bottom = 43.0
+script = ExtResource("4_v87cx")
+metadata/_edit_use_anchors_ = true
+
+[node name="ClosedModal" type="Control" parent="UI/HUD"]
+layout_mode = 1
+anchor_left = 8.925
+anchor_top = 22.95
+anchor_right = 8.925
+anchor_bottom = 22.95
+offset_left = 311.0
+offset_top = -27.0
+offset_right = 1575.0
+offset_bottom = 683.0
+script = ExtResource("5_ymhx1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="UI/HUD/ClosedModal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.74920887
+anchor_top = -1.2253522
+anchor_right = -0.74920887
+anchor_bottom = -1.2253522
+offset_left = 230.0
+offset_top = 135.0
+offset_right = 1303.0
+offset_bottom = 629.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Закрито" type="Sprite2D" parent="UI/HUD/ClosedModal/Panel"]
+position = Vector2(540, 202)
+scale = Vector2(1.3000001, 0.99999994)
+texture = ExtResource("6_rq5tr")
+
+[node name="Label" type="Label" parent="UI/HUD/ClosedModal/Panel"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 324.0
+offset_right = 943.0
+offset_bottom = 393.0
+theme_override_font_sizes/font_size = 50
+text = "ЦЯ ЛОКАЦЯ ЩЕ НЕДОСТУПНА"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="UI/HUD/ClosedModal/Panel/Label"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 84.0
+offset_right = 647.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 30
+text = "Вступай в коледж та дізнайся що там)"
+metadata/_edit_use_anchors_ = true
+
+[node name="CloseBtn" type="Button" parent="UI/HUD/ClosedModal/Panel"]
+layout_mode = 0
+offset_left = 951.0
+offset_top = 13.0
+offset_right = 1041.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.39215687, 0.4627451, 0.49019608, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01kpt")
+text = "✕"
+metadata/_edit_use_anchors_ = true
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="ArrowUp" type="Area2D" parent="Interactables"]
+position = Vector2(-341, 328)
+script = ExtResource("7_2rksx")
+target_scene = "res://Сцени/3этажналево.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowUp"]
+position = Vector2(235, -131)
+shape = SubResource("RectangleShape2D_j1ktv")
+
+[node name="ArrowLeft" type="Area2D" parent="Interactables"]
+position = Vector2(1840, 698)
+script = ExtResource("7_2rksx")
+target_scene = "res://Сцени/2этажналево.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowLeft"]
+position = Vector2(-1980.5, -400)
+shape = SubResource("RectangleShape2D_j1ktv")
+
+[node name="ClosedDoor" type="Area2D" parent="Interactables"]
+position = Vector2(-265, -288)
+script = ExtResource("8_ydoap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClosedDoor"]
+position = Vector2(917, 637)
+shape = SubResource("RectangleShape2D_j5mmk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Interactables/ClosedDoor"]
+position = Vector2(482, 642.5)
+shape = SubResource("RectangleShape2D_j5mmk")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Interactables/ClosedDoor"]
+position = Vector2(2094, 653)
+shape = SubResource("RectangleShape2D_j5mmk")

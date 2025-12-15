@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1b0kgmg2oiqt"]
+
+[ext_resource type="Texture2D" uid="uid://btmi63gf8luvt" path="res://Сцени/кабФизики.png" id="1_yexra"]
+[ext_resource type="Script" uid="uid://c77hglfl4k3uh" path="res://Скрипты/dialog_modal_физика.gd" id="3_1w8fl"]
+[ext_resource type="Script" uid="uid://l7rct0hj53u8" path="res://Сцени/lightning_canvas.gd" id="4_3wnpb"]
+[ext_resource type="Script" uid="uid://dje5mwd2k6v26" path="res://Сцени/dialog_manager.gd" id="5_ukdsp"]
+
+[node name="кабФизики" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(696.50006, 354.1425)
+scale = Vector2(0.46792167, 0.40123847)
+texture = ExtResource("1_yexra")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ModalDialog" type="Control" parent="UI/HUD"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_1w8fl")
+
+[node name="Panel" type="Panel" parent="UI/HUD/ModalDialog"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 47.0
+offset_right = 1238.0
+offset_bottom = 654.0
+
+[node name="LabelText" type="Label" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 52.0
+offset_right = 1155.0
+offset_bottom = 309.0
+theme_override_font_sizes/font_size = 30
+autowrap_mode = 2
+
+[node name="Btn1" type="Button" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 517.0
+offset_right = 1189.0
+offset_bottom = 593.0
+theme_override_font_sizes/font_size = 30
+
+[node name="Btn2" type="Button" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 426.0
+offset_right = 1193.0
+offset_bottom = 502.0
+theme_override_font_sizes/font_size = 30
+
+[node name="Btn3" type="Button" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 336.0
+offset_right = 1193.0
+offset_bottom = 412.0
+theme_override_font_sizes/font_size = 30
+
+[node name="Btn4" type="Button" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 241.0
+offset_right = 1197.0
+offset_bottom = 317.0
+theme_override_font_sizes/font_size = 30
+
+[node name="LightningCanvas" type="ColorRect" parent="UI/HUD"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -24.0
+offset_right = 30.0
+offset_bottom = 16.0
+script = ExtResource("4_3wnpb")
+
+[node name="DialogManager" type="Node" parent="UI/HUD"]
+script = ExtResource("5_ukdsp")

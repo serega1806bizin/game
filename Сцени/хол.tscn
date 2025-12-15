@@ -291,6 +291,7 @@ shape = SubResource("RectangleShape2D_etg2f")
 
 [node name="ArrowUp" type="Area2D" parent="Interactables"]
 script = ExtResource("8_xc1xh")
+target_scene = "res://Сцени/2этажналево.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowUp"]
 position = Vector2(1718.5, 341.5)
@@ -298,6 +299,7 @@ shape = SubResource("RectangleShape2D_w5fkn")
 
 [node name="ArrowRight" type="Area2D" parent="Interactables"]
 script = ExtResource("9_25rrl")
+target_scene = "res://Сцени/1этажнаправо.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowRight"]
 position = Vector2(1786, 395)

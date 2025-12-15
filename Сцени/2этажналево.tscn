@@ -1,0 +1,279 @@
+[gd_scene load_steps=28 format=3 uid="uid://djv1ltsbyhho1"]
+
+[ext_resource type="Texture2D" uid="uid://cuqa6u8tqaioe" path="res://Сцени/2этажналево.png" id="1_p7a8v"]
+[ext_resource type="Script" uid="uid://u1tlf3f5jp2u" path="res://player.gd" id="3_1iroq"]
+[ext_resource type="Texture2D" uid="uid://dvybl5hbdxwu3" path="res://Герои/hero.png" id="4_28lr3"]
+[ext_resource type="Script" uid="uid://b1d2j4s8nvv54" path="res://Сцени/arrow_up.gd" id="6_1wv8x"]
+[ext_resource type="Script" uid="uid://b5nhekwsgec4h" path="res://Сцени/closed_door.gd" id="7_4j32y"]
+[ext_resource type="Script" uid="uid://bowth80x73byk" path="res://Сцени/math.gd" id="8_lacv2"]
+[ext_resource type="Script" uid="uid://bwcmxhtopp56c" path="res://Сцени/hud1.gd" id="9_armaj"]
+[ext_resource type="Script" uid="uid://dh1xoy4otfh5s" path="res://Сцени/closed_modal.gd" id="12_khbju"]
+[ext_resource type="Texture2D" uid="uid://cxx1ufi75jlp7" path="res://Другое/Закрито.jpeg" id="13_fjloq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tv2u1"]
+size = Vector2(18, 258.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6intb"]
+size = Vector2(2690.625, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlqyt"]
+size = Vector2(2699, 6.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i78ry"]
+size = Vector2(13, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkmm6"]
+atlas = ExtResource("4_28lr3")
+region = Rect2(0, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp4no"]
+atlas = ExtResource("4_28lr3")
+region = Rect2(96, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkxsu"]
+atlas = ExtResource("4_28lr3")
+region = Rect2(192, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbwvu"]
+atlas = ExtResource("4_28lr3")
+region = Rect2(288, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m54cn"]
+atlas = ExtResource("4_28lr3")
+region = Rect2(384, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqrss"]
+atlas = ExtResource("4_28lr3")
+region = Rect2(480, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwdo1"]
+atlas = ExtResource("4_28lr3")
+region = Rect2(576, 0, 96, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gkhs"]
+atlas = ExtResource("4_28lr3")
+region = Rect2(672, 0, 96, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6wvb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkmm6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp4no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkxsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbwvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m54cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqrss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwdo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gkhs")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fcxw"]
+size = Vector2(75, 22.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjdvl"]
+size = Vector2(37, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5hi3"]
+size = Vector2(213, 358.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbr6q"]
+size = Vector2(218.875, 376)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li6yg"]
+
+[node name="2этажналево" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-67.000244, 341)
+scale = Vector2(1.289, 1.329)
+texture = ExtResource("1_p7a8v")
+
+[node name="RoadWalls" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="LeftWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(-1405, 598.25)
+shape = SubResource("RectangleShape2D_tv2u1")
+
+[node name="TopWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(-55, 494)
+shape = SubResource("RectangleShape2D_6intb")
+
+[node name="BottomWall" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(-66.5, 718.25)
+shape = SubResource("RectangleShape2D_tlqyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoadWalls"]
+position = Vector2(1271.5, 585)
+shape = SubResource("RectangleShape2D_i78ry")
+
+[node name="Actors" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" type="CharacterBody2D" parent="Actors"]
+z_index = 2
+position = Vector2(1151, 472)
+collision_mask = 6
+script = ExtResource("3_1iroq")
+speed = 200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors/Player"]
+position = Vector2(-33.875034, -29.500008)
+scale = Vector2(2.2942705, 2.1867473)
+sprite_frames = SubResource("SpriteFrames_v6wvb")
+animation = &"walk"
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Player"]
+position = Vector2(-7, 127)
+shape = SubResource("RectangleShape2D_0fcxw")
+
+[node name="Camera2D" type="Camera2D" parent="Actors/Player"]
+position = Vector2(-500, -58)
+limit_left = -1398
+limit_top = -18
+limit_right = 1284
+limit_bottom = 715
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="ArrowUp" type="Area2D" parent="Interactables"]
+position = Vector2(920, 349)
+script = ExtResource("6_1wv8x")
+target_scene = "res://Сцени/3этажналево.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowUp"]
+position = Vector2(227, -144)
+shape = SubResource("RectangleShape2D_qjdvl")
+
+[node name="ClosedDoor" type="Area2D" parent="Interactables"]
+position = Vector2(-265, -288)
+script = ExtResource("7_4j32y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ClosedDoor"]
+position = Vector2(-956.5, 627.8125)
+shape = SubResource("RectangleShape2D_p5hi3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactables/ClosedDoor"]
+position = Vector2(-496, 625)
+shape = SubResource("RectangleShape2D_p5hi3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Interactables/ClosedDoor"]
+position = Vector2(11, 628)
+shape = SubResource("RectangleShape2D_p5hi3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Interactables/ClosedDoor"]
+position = Vector2(727, 618)
+shape = SubResource("RectangleShape2D_p5hi3")
+
+[node name="Physic" type="Area2D" parent="Interactables"]
+position = Vector2(-847, 368)
+script = ExtResource("8_lacv2")
+target_scene = "res://Сцени/каб_физики.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Physic"]
+position = Vector2(1713, -32)
+shape = SubResource("RectangleShape2D_dbr6q")
+
+[node name="ArrowDown" type="Area2D" parent="Interactables"]
+position = Vector2(1850, 699)
+script = ExtResource("6_1wv8x")
+target_scene = "res://Сцени/хол.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowDown"]
+position = Vector2(-701, -422)
+shape = SubResource("RectangleShape2D_qjdvl")
+
+[node name="ArrowRight" type="Area2D" parent="Interactables"]
+position = Vector2(1840, 698)
+script = ExtResource("6_1wv8x")
+target_scene = "res://Сцени/2этажнаправо.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ArrowRight"]
+position = Vector2(-647, -460)
+shape = SubResource("RectangleShape2D_qjdvl")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_armaj")
+
+[node name="ClosedModal" type="Control" parent="UI/HUD"]
+anchors_preset = 0
+offset_left = -7.0
+offset_top = 24.0
+offset_right = 1257.0
+offset_bottom = 734.0
+script = ExtResource("12_khbju")
+
+[node name="Panel" type="Panel" parent="UI/HUD/ClosedModal"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 82.0
+offset_right = 1197.0
+offset_bottom = 576.0
+
+[node name="Закрито" type="Sprite2D" parent="UI/HUD/ClosedModal/Panel"]
+position = Vector2(540, 202)
+scale = Vector2(1.3000001, 0.99999994)
+texture = ExtResource("13_fjloq")
+
+[node name="Label" type="Label" parent="UI/HUD/ClosedModal/Panel"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 324.0
+offset_right = 943.0
+offset_bottom = 393.0
+theme_override_font_sizes/font_size = 50
+text = "ЦЯ ЛОКАЦЯ ЩЕ НЕДОСТУПНА"
+
+[node name="Label" type="Label" parent="UI/HUD/ClosedModal/Panel/Label"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 84.0
+offset_right = 647.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 30
+text = "Вступай в коледж та дізнайся що там)"
+
+[node name="CloseBtn" type="Button" parent="UI/HUD/ClosedModal/Panel"]
+layout_mode = 0
+offset_left = 951.0
+offset_top = 13.0
+offset_right = 1041.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.39215687, 0.4627451, 0.49019608, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_li6yg")
+text = "✕"
