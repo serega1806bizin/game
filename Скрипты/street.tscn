@@ -11,14 +11,14 @@
 [ext_resource type="Script" uid="uid://brdfe6juxyvc2" path="res://Скрипты/shop.gd" id="8_jbwvu"]
 [ext_resource type="Script" uid="uid://bta3egg2a8o8a" path="res://Скрипты/npc_girl.gd" id="9_lwdo1"]
 [ext_resource type="Script" uid="uid://br6yyhjcuua48" path="res://Скрипты/hud.gd" id="9_m54cn"]
-[ext_resource type="Texture2D" uid="uid://b844aqmwon1as" path="res://Герои/npc-уличний.png" id="10_5gkhs"]
+[ext_resource type="Texture2D" uid="uid://b844aqmwon1as" path="res://Герои/npc-уличний.png" id="10_5gkhs"]
 [ext_resource type="Script" uid="uid://b36hikp4fe7n5" path="res://Скрипты/shop_modal.gd" id="10_jqrss"]
 [ext_resource type="Script" uid="uid://cq6d6bvsber0q" path="res://Скрипты/college_door.gd" id="11_0eujd"]
 [ext_resource type="Texture2D" uid="uid://bl366t8tgibt5" path="res://Другое/choose.png" id="11_lwdo1"]
 [ext_resource type="Script" uid="uid://nfqihnbsavwq" path="res://Скрипты/dialog_modal.gd" id="14_mjlgn"]
-[ext_resource type="Texture2D" uid="uid://bijyi2822smmb" path="res://Герои/npc-уличний-2.png" id="16_i1wjx"]
-[ext_resource type="Texture2D" uid="uid://dnw4dig2intwq" path="res://Герои/npc-уличний-3.png" id="17_0eujd"]
-[ext_resource type="Texture2D" uid="uid://bh20c2qov42o5" path="res://Герои/npc-уличний-4.png" id="18_adjms"]
+[ext_resource type="Texture2D" uid="uid://bijyi2822smmb" path="res://Герои/npc-уличний-2.png" id="16_i1wjx"]
+[ext_resource type="Texture2D" uid="uid://dnw4dig2intwq" path="res://Герои/npc-уличний-3.png" id="17_0eujd"]
+[ext_resource type="Texture2D" uid="uid://bh20c2qov42o5" path="res://Герои/npc-уличний-4.png" id="18_adjms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83x7t"]
 size = Vector2(4, 160)

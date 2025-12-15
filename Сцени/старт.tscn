@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://du2ilcm1sms5n"]
+[gd_scene load_steps=12 format=3 uid="uid://cap2a71ob5tm3"]
 
 [ext_resource type="Texture2D" uid="uid://diqgdtor2susu" path="res://Другое/модалка.png" id="1_madpg"]
+[ext_resource type="Script" uid="uid://ii5cqbieeagn" path="res://Сцени/старт.gd" id="1_rqc02"]
 [ext_resource type="Texture2D" uid="uid://bixv3o646ln3x" path="res://Другое/кнопка.jpg" id="2_2w1cr"]
 [ext_resource type="Script" uid="uid://sab2rrhj0h67" path="res://Сцени/аіваіва.gd" id="3_346us"]
-[ext_resource type="Script" uid="uid://ctd4hdtybv73j" path="res://Сцени/buttonіва.gd" id="4_346us"]
+[ext_resource type="Script" uid="uid://e2035s4jdg2" path="res://Сцени/button_2ааа.gd" id="3_xdr00"]
+[ext_resource type="Script" path="res://Сцени/buttonіва.gd" id="4_346us"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2w1cr"]
 
@@ -20,6 +22,7 @@ texture = ExtResource("2_2w1cr")
 texture = ExtResource("2_2w1cr")
 
 [node name="Старт" type="Node"]
+script = ExtResource("1_rqc02")
 
 [node name="Panel2" type="Panel" parent="."]
 z_index = -1
@@ -52,7 +55,7 @@ offset_left = 179.316
 offset_top = 298.165
 offset_right = 1126.316
 offset_bottom = 390.165
-theme_override_colors/font_color = Color(0.07673995, 0, 0.58902985, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Привіт!"
 horizontal_alignment = 1
@@ -67,7 +70,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_xdr00")
 text = "Я гість"
-script = ExtResource("3_346us")
+script = ExtResource("3_xdr00")
 
 [node name="Label2" type="Label" parent="Panel2/Panel"]
 layout_mode = 1
@@ -80,7 +83,7 @@ offset_left = 179.316
 offset_top = 369.165
 offset_right = 1156.316
 offset_bottom = 511.165
-theme_override_colors/font_color = Color(0.07673995, 0, 0.58902985, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Зараз у тебе є можливість пройти один день з життя студента нашого коледжу!
 Давай познайомимося?"
@@ -101,7 +104,7 @@ current_panel_path = NodePath("..")
 form_path = NodePath("../../Форма")
 
 [node name="Форма" type="Panel" parent="Panel2"]
-visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.12100001
@@ -125,7 +128,7 @@ offset_left = 793.316
 offset_top = 385.165
 offset_right = 1013.316
 offset_bottom = 437.165
-theme_override_colors/font_color = Color(0.07673995, 0, 0.58902985, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Контакт"
 autowrap_mode = 2
@@ -148,7 +151,7 @@ offset_left = 179.316
 offset_top = 298.165
 offset_right = 1126.316
 offset_bottom = 390.165
-theme_override_colors/font_color = Color(0.07673995, 0, 0.58902985, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Привіт, розкажи трішки про тебе!"
 horizontal_alignment = 1
@@ -164,7 +167,7 @@ offset_left = 177.316
 offset_top = 392.165
 offset_right = 253.316
 offset_bottom = 444.165
-theme_override_colors/font_color = Color(0.07673995, 0, 0.58902985, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Імя"
 autowrap_mode = 2
@@ -180,7 +183,7 @@ offset_left = 479.316
 offset_top = 389.165
 offset_right = 699.316
 offset_bottom = 441.165
-theme_override_colors/font_color = Color(0.07673995, 0, 0.58902985, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "З якої школи"
 autowrap_mode = 2
@@ -235,7 +238,7 @@ offset_left = 180.316
 offset_top = 503.165
 offset_right = 788.316
 offset_bottom = 555.165
-theme_override_colors/font_color = Color(0.07673995, 0, 0.58902985, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "На яку спеціальність хочеш вступати?"
 autowrap_mode = 2

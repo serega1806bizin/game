@@ -7,9 +7,17 @@ var current_panel: Panel
 var form: Panel
 
 func _ready():
-	current_panel = get_node(current_panel_path)
-	form = get_node(form_path)
+	if current_panel_path != NodePath():
+		current_panel = get_node(current_panel_path)
+
+	if form_path != NodePath():
+		form = get_node(form_path)
+
 	pressed.connect(_on_pressed)
+
 func _on_pressed():
-	current_panel.visible = false
-	form.visible = true
+	if current_panel:
+		current_panel.visible = false
+
+	if form:
+		form.visible = true
