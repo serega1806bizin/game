@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://ovtijnj1jcf6"]
+
+[ext_resource type="Texture2D" uid="uid://bji4vpt2ovymc" path="res://Сцени/каб_информатики.png" id="1_hbh3e"]
+[ext_resource type="Script" uid="uid://cem3fg48gcuhq" path="res://modal_dialog454.gd" id="2_uvu0g"]
+[ext_resource type="Script" uid="uid://cdym7vtw7e2q" path="res://dialog_managerеке.gd" id="3_33448"]
+
+[node name="каб_информатики" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(634.5, 364.91873)
+scale = Vector2(1.0838361, 0.90884596)
+texture = ExtResource("1_hbh3e")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ModalDialog" type="Control" parent="UI/HUD"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_uvu0g")
+
+[node name="Panel" type="Panel" parent="UI/HUD/ModalDialog"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 1207.0
+offset_bottom = 694.0
+
+[node name="LabelText" type="Label" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.15
+anchor_bottom = 0.034
+offset_left = 569.0
+offset_top = 46.0
+offset_right = 432.75
+offset_bottom = 46.22
+
+[node name="CodeInput" type="LineEdit" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 186.0
+offset_right = 124.5625
+offset_bottom = 217.0
+
+[node name="Btn1" type="Button" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 385.0
+offset_right = 220.0
+offset_bottom = 425.0
+
+[node name="Btn2" type="Button" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 393.0
+offset_right = 387.0
+offset_bottom = 417.0
+
+[node name="Btn3" type="Button" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 395.0
+offset_right = 644.0
+offset_bottom = 449.0
+
+[node name="Btn4" type="Button" parent="UI/HUD/ModalDialog/Panel"]
+layout_mode = 0
+offset_right = 226.0
+offset_bottom = 62.0
+
+[node name="DialogManager" type="Node" parent="UI/HUD"]
+script = ExtResource("3_33448")

@@ -273,7 +273,7 @@ func _show_hard_task():
 
 		if dialog.choice_selected.is_connected(_router):
 			dialog.choice_selected.disconnect(_router)
-		dialog.choice_selected.connect(_router)
+		dialog.choicыe_selected.connect(_router)
 		return
 
 
