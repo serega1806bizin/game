@@ -1,8 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://b7fu62yjx57de"]
+[gd_scene load_steps=24 format=3 uid="uid://b7fu62yjx57de"]
 
 [ext_resource type="Texture2D" uid="uid://cr24f4mq64fn5" path="res://Сцени/Зона отдыха.jpg" id="1_rpi1x"]
 [ext_resource type="Texture2D" uid="uid://cesb8aee0y0aa" path="res://Герои/eva.png" id="2_g5jrn"]
+[ext_resource type="Script" uid="uid://bj4ykrurpxglp" path="res://Сцени/hud-kletka.gd" id="2_k3lh4"]
 [ext_resource type="Texture2D" uid="uid://c8a4ckx0fl6c4" path="res://Герои/lera.png" id="3_4hoj6"]
+[ext_resource type="Script" uid="uid://dv604euoynqhm" path="res://Сцени/dialog_modal_в клетке.gd" id="3_k3lh4"]
+[ext_resource type="Script" uid="uid://mbgcu43vhqct" path="res://Сцени/button.gd" id="4_k3lh4"]
 [ext_resource type="Texture2D" uid="uid://58wqjo510sd4" path="res://Герои/serhii.png" id="4_wfk3b"]
 [ext_resource type="Script" uid="uid://u1tlf3f5jp2u" path="res://player.gd" id="5_noiyu"]
 [ext_resource type="Texture2D" uid="uid://dvybl5hbdxwu3" path="res://Герои/hero.png" id="6_k3lh4"]
@@ -106,8 +109,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_k3lh4")
 
 [node name="ChooseModal" type="Control" parent="UI/HUD"]
+z_index = 1
 anchors_preset = 0
 offset_left = 288.0
 offset_top = 148.0
@@ -123,11 +128,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fryg3")
 
 [node name="Label" type="Label" parent="UI/HUD/ChooseModal/Panel"]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 26.0
-offset_right = 722.0
-offset_bottom = 139.0
-theme_override_font_sizes/font_size = 40
+offset_left = 42.0
+offset_top = -4.0
+offset_right = 718.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 30
 text = "ВІТАЄМО В КІМНАТІ ВІДПОЧИНКУ
 Що ти хочеш зробити?"
 horizontal_alignment = 1
@@ -139,18 +144,18 @@ anchors_preset = -1
 anchor_right = 0.039
 anchor_bottom = 0.061000004
 offset_left = 53.0
-offset_top = 165.0
+offset_top = 118.0
 offset_right = 696.243
-offset_bottom = 213.173
+offset_bottom = 166.173
 theme_override_font_sizes/font_size = 30
 text = "🥪 Сісти їсти бутерброд"
 
 [node name="Talk" type="Button" parent="UI/HUD/ChooseModal/Panel"]
 layout_mode = 0
 offset_left = 55.0
-offset_top = 257.0
+offset_top = 210.0
 offset_right = 725.0
-offset_bottom = 320.0
+offset_bottom = 273.0
 theme_override_font_sizes/font_size = 30
 text = "🗣 Поговорити з кимось"
 
@@ -160,11 +165,21 @@ anchors_preset = -1
 anchor_right = 0.062000003
 anchor_bottom = 0.059000004
 offset_left = 55.0
-offset_top = 335.0
+offset_top = 288.0
 offset_right = 677.694
-offset_bottom = 369.987
+offset_bottom = 322.987
 theme_override_font_sizes/font_size = 30
 text = "😴 Просто відпочити"
+
+[node name="Button" type="Button" parent="UI/HUD/ChooseModal/Panel"]
+layout_mode = 0
+offset_left = 623.0
+offset_top = 358.0
+offset_right = 729.0
+offset_bottom = 408.0
+theme_override_font_sizes/font_size = 30
+text = "выйти"
+script = ExtResource("4_k3lh4")
 
 [node name="DialogModal" type="Control" parent="UI/HUD"]
 anchors_preset = 0
@@ -172,6 +187,7 @@ offset_left = 183.0
 offset_top = 85.0
 offset_right = 1170.0
 offset_bottom = 676.0
+script = ExtResource("3_k3lh4")
 
 [node name="Panel" type="Panel" parent="UI/HUD/DialogModal"]
 layout_mode = 0
@@ -196,6 +212,7 @@ offset_left = 47.0
 offset_top = 53.0
 offset_right = 663.76
 offset_bottom = 272.816
+theme_override_font_sizes/font_size = 30
 autowrap_mode = 2
 
 [node name="Btn1" type="Button" parent="UI/HUD/DialogModal/Panel"]

@@ -298,3 +298,6 @@ theme_override_colors/icon_normal_color = Color(0.39215687, 0.4627451, 0.4901960
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_o7ip1")
 text = "✕"
+
+[node name="SpawnFromLeftC" type="Marker2D" parent="."]
+position = Vector2(735, 491)

@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8v7mwospvkyp"]
+
+[ext_resource type="Script" uid="uid://bcm1x31wvpjkg" path="res://Сцени/каб_математики.gd" id="1_c5iv1"]
+[ext_resource type="Texture2D" uid="uid://b112lkxsaai4n" path="res://Сцени/кабМатем.png" id="2_txjja"]
+[ext_resource type="Script" uid="uid://b7s3kgiqu1tyo" path="res://Сцени/dialog_modal-матем.gd" id="3_811al"]
+[ext_resource type="Script" uid="uid://7ymhggeggcmt" path="res://Сцени/input_answer_modal-матем.gd" id="4_ggr68"]
+
+[node name="КабМатематики" type="Node2D"]
+
+[node name="MathLessonScene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_c5iv1")
+
+[node name="Background" type="Sprite2D" parent="MathLessonScene"]
+position = Vector2(659, 356)
+scale = Vector2(1.6, 1.65)
+texture = ExtResource("2_txjja")
+
+[node name="DialogModal" type="Control" parent="MathLessonScene"]
+anchors_preset = 0
+offset_left = 133.0
+offset_top = 72.0
+offset_right = 1174.0
+offset_bottom = 656.0
+script = ExtResource("3_811al")
+
+[node name="Panel" type="Panel" parent="MathLessonScene/DialogModal"]
+layout_mode = 0
+offset_right = 1025.0
+offset_bottom = 593.0
+
+[node name="LabelText" type="Label" parent="MathLessonScene/DialogModal/Panel"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 63.0
+offset_right = 939.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 50
+autowrap_mode = 2
+
+[node name="Btn1" type="Button" parent="MathLessonScene/DialogModal/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 496.0
+offset_right = 496.0
+offset_bottom = 569.0
+
+[node name="Btn2" type="Button" parent="MathLessonScene/DialogModal/Panel"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 483.0
+offset_right = 995.0
+offset_bottom = 566.0
+
+[node name="Btn3" type="Button" parent="MathLessonScene/DialogModal/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.058000002
+anchor_bottom = 0.040000003
+offset_left = 24.0
+offset_top = 407.0
+offset_right = 436.55
+offset_bottom = 455.28
+
+[node name="Btn4" type="Button" parent="MathLessonScene/DialogModal/Panel"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 407.0
+offset_right = 996.0
+offset_bottom = 469.0
+
+[node name="InputAnswerModal" type="Control" parent="MathLessonScene"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_ggr68")
+
+[node name="Panel" type="Panel" parent="MathLessonScene/InputAnswerModal"]
+process_mode = 3
+layout_mode = 0
+offset_left = 198.0
+offset_top = 172.0
+offset_right = 1079.0
+offset_bottom = 614.0
+
+[node name="LabelTask" type="Label" parent="MathLessonScene/InputAnswerModal/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 34.0
+offset_top = 39.0
+offset_right = 845.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+
+[node name="InputField" type="LineEdit" parent="MathLessonScene/InputAnswerModal/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 31.0
+offset_top = 265.0
+offset_right = 848.0
+offset_bottom = 341.0
+
+[node name="BtnConfirm" type="Button" parent="MathLessonScene/InputAnswerModal/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 315.0
+offset_top = 359.0
+offset_right = 644.0
+offset_bottom = 428.0
+theme_override_font_sizes/font_size = 40
+text = "Підтвердити"
