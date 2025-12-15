@@ -1,12 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://djv1ltsbyhho1"]
+[gd_scene load_steps=32 format=3 uid="uid://djv1ltsbyhho1"]
 
+[ext_resource type="Script" uid="uid://c7ycgaqfou00s" path="res://Сцени/2_этажналево.gd" id="1_g383n"]
 [ext_resource type="Texture2D" uid="uid://cuqa6u8tqaioe" path="res://Сцени/2этажналево.png" id="1_p7a8v"]
 [ext_resource type="Script" uid="uid://u1tlf3f5jp2u" path="res://player.gd" id="3_1iroq"]
 [ext_resource type="Texture2D" uid="uid://dvybl5hbdxwu3" path="res://Герои/hero.png" id="4_28lr3"]
 [ext_resource type="Script" uid="uid://b1d2j4s8nvv54" path="res://Сцени/arrow_up.gd" id="6_1wv8x"]
 [ext_resource type="Script" uid="uid://b5nhekwsgec4h" path="res://Сцени/closed_door.gd" id="7_4j32y"]
-[ext_resource type="Script" uid="uid://bowth80x73byk" path="res://Сцени/math.gd" id="8_lacv2"]
+[ext_resource type="Script" path="res://Сцени/math.gd" id="8_lacv2"]
 [ext_resource type="Script" uid="uid://bwcmxhtopp56c" path="res://Сцени/hud1.gd" id="9_armaj"]
+[ext_resource type="Script" uid="uid://cd0qpviu4ub7y" path="res://Скрипты/coin.gd" id="11_p7a8v"]
+[ext_resource type="Texture2D" uid="uid://di4i3uxlxkut8" path="res://photo_ygki-removebg-preview.png" id="12_dsp77"]
 [ext_resource type="Script" uid="uid://dh1xoy4otfh5s" path="res://Сцени/closed_modal.gd" id="12_khbju"]
 [ext_resource type="Texture2D" uid="uid://cxx1ufi75jlp7" path="res://Другое/Закрито.jpeg" id="13_fjloq"]
 
@@ -105,7 +108,11 @@ size = Vector2(218.875, 376)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li6yg"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1iroq"]
+radius = 24.0
+
 [node name="2этажналево" type="Node2D"]
+script = ExtResource("1_g383n")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-67.000244, 341)
@@ -189,11 +196,11 @@ position = Vector2(11, 628)
 shape = SubResource("RectangleShape2D_p5hi3")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Interactables/ClosedDoor"]
-position = Vector2(727, 618)
+position = Vector2(1150, 618)
 shape = SubResource("RectangleShape2D_p5hi3")
 
 [node name="Physic" type="Area2D" parent="Interactables"]
-position = Vector2(-847, 368)
+position = Vector2(-1266, 391)
 script = ExtResource("8_lacv2")
 target_scene = "res://Сцени/каб_физики.tscn"
 
@@ -277,3 +284,83 @@ theme_override_colors/icon_normal_color = Color(0.39215687, 0.4627451, 0.4901960
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_li6yg")
 text = "✕"
+
+[node name="CoinLabel" type="Label" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 1155.0
+offset_top = 20.0
+offset_right = 1215.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="Coin" type="Area2D" parent="."]
+position = Vector2(-17, 0)
+script = ExtResource("11_p7a8v")
+coin_id = "40"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("12_dsp77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_1iroq")
+
+[node name="Coin2" type="Area2D" parent="."]
+position = Vector2(-236, 19)
+script = ExtResource("11_p7a8v")
+coin_id = "41"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("12_dsp77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_1iroq")
+
+[node name="Coin3" type="Area2D" parent="."]
+position = Vector2(-122, 16)
+script = ExtResource("11_p7a8v")
+coin_id = "42"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("12_dsp77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_1iroq")
+
+[node name="Coin4" type="Area2D" parent="."]
+position = Vector2(-407, 12)
+script = ExtResource("11_p7a8v")
+coin_id = "43"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin4"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("12_dsp77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin4"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_1iroq")
+
+[node name="Coin5" type="Area2D" parent="."]
+position = Vector2(-565, -31)
+script = ExtResource("11_p7a8v")
+coin_id = "44"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin5"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("12_dsp77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin5"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_1iroq")

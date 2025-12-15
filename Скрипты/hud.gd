@@ -9,7 +9,6 @@ extends Control
 @onready var npcF: Sprite2D = $"../../Interactables/NPC_Girl/!"
 @onready var dialog: Control = $DialogModal
 
-@onready var coin_label = $CoinLabel
 
 	
 func _ready() -> void:

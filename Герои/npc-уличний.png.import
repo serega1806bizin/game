@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b844aqmwon1as"
-path="res://.godot/imported/npc-уличний.png-26cd9d3e6b60c572f906c2784fbf9cb9.ctex"
+path="res://.godot/imported/npc-уличний.png-7082f765bc2b37c8501ac62ba0c9997b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Герои/npc-уличний.png"
-dest_files=["res://.godot/imported/npc-уличний.png-26cd9d3e6b60c572f906c2784fbf9cb9.ctex"]
+source_file="res://Герои/npc-уличний.png"
+dest_files=["res://.godot/imported/npc-уличний.png-7082f765bc2b37c8501ac62ba0c9997b.ctex"]
 
 [params]
 

@@ -92,4 +92,4 @@ func _on_submit():
 
 # --- 4. Переход в игру ---
 func _start_game():
-	get_tree().change_scene_to_file("res://хол.tscn")
+	get_tree().change_scene_to_file("res://Скрипты/street.tscn")

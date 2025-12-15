@@ -469,9 +469,20 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_mtk4j")
 text = "✕"
 
+[node name="CoinLabel" type="Label" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 1155.0
+offset_top = 20.0
+offset_right = 1215.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+
 [node name="Coin" type="Area2D" parent="."]
 position = Vector2(-822, 43)
 script = ExtResource("16_etg2f")
+coin_id = "11"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin"]
 position = Vector2(1070, 596)
@@ -485,6 +496,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin2" type="Area2D" parent="."]
 position = Vector2(-722, 43)
 script = ExtResource("16_etg2f")
+coin_id = "12"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin2"]
 position = Vector2(1070, 596)
@@ -498,6 +510,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin3" type="Area2D" parent="."]
 position = Vector2(-622, 43)
 script = ExtResource("16_etg2f")
+coin_id = "13"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin3"]
 position = Vector2(1070, 596)
@@ -511,6 +524,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin4" type="Area2D" parent="."]
 position = Vector2(-522, 43)
 script = ExtResource("16_etg2f")
+coin_id = "14"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin4"]
 position = Vector2(1070, 596)
@@ -524,6 +538,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin5" type="Area2D" parent="."]
 position = Vector2(-422, 43)
 script = ExtResource("16_etg2f")
+coin_id = "15"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin5"]
 position = Vector2(1070, 596)
@@ -537,6 +552,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin6" type="Area2D" parent="."]
 position = Vector2(-322, 43)
 script = ExtResource("16_etg2f")
+coin_id = "16"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin6"]
 position = Vector2(1070, 596)
@@ -550,6 +566,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin7" type="Area2D" parent="."]
 position = Vector2(-222, 43)
 script = ExtResource("16_etg2f")
+coin_id = "17"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin7"]
 position = Vector2(1070, 596)
@@ -563,6 +580,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin8" type="Area2D" parent="."]
 position = Vector2(-122, 43)
 script = ExtResource("16_etg2f")
+coin_id = "18"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin8"]
 position = Vector2(1070, 596)
@@ -576,6 +594,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin9" type="Area2D" parent="."]
 position = Vector2(-22, 43)
 script = ExtResource("16_etg2f")
+coin_id = "19"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin9"]
 position = Vector2(1070, 596)
@@ -589,6 +608,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin10" type="Area2D" parent="."]
 position = Vector2(122, 43)
 script = ExtResource("16_etg2f")
+coin_id = "20"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin10"]
 position = Vector2(1070, 596)
@@ -602,6 +622,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin11" type="Area2D" parent="."]
 position = Vector2(222, 43)
 script = ExtResource("16_etg2f")
+coin_id = "21"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin11"]
 position = Vector2(1070, 596)
@@ -615,6 +636,7 @@ shape = SubResource("CircleShape2D_m6vjs")
 [node name="Coin12" type="Area2D" parent="."]
 position = Vector2(322, 43)
 script = ExtResource("16_etg2f")
+coin_id = "22"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin12"]
 position = Vector2(1070, 596)
@@ -626,8 +648,9 @@ position = Vector2(1068, 591)
 shape = SubResource("CircleShape2D_m6vjs")
 
 [node name="Coin13" type="Area2D" parent="."]
-position = Vector2(422, 43)
+position = Vector2(414, 43)
 script = ExtResource("16_etg2f")
+coin_id = "23"
 
 [node name="Sprite2D" type="Sprite2D" parent="Coin13"]
 position = Vector2(1070, 596)
@@ -635,6 +658,48 @@ scale = Vector2(0.23259488, 0.18963878)
 texture = ExtResource("17_w5fkn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin13"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_m6vjs")
+
+[node name="Coin15" type="Area2D" parent="."]
+position = Vector2(502, 40)
+script = ExtResource("16_etg2f")
+coin_id = "24"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin15"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("17_w5fkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin15"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_m6vjs")
+
+[node name="Coin16" type="Area2D" parent="."]
+position = Vector2(578, 20)
+script = ExtResource("16_etg2f")
+coin_id = "25"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin16"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("17_w5fkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin16"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_m6vjs")
+
+[node name="Coin17" type="Area2D" parent="."]
+position = Vector2(650, -27)
+script = ExtResource("16_etg2f")
+coin_id = "26"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin17"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("17_w5fkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin17"]
 position = Vector2(1068, 591)
 shape = SubResource("CircleShape2D_m6vjs")
 

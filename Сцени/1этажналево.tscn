@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://bjilndyqcty10"]
+[gd_scene load_steps=37 format=3 uid="uid://bjilndyqcty10"]
 
 [ext_resource type="Texture2D" uid="uid://egymrbxh2fas" path="res://Сцени/1этажналево.png" id="1_4imed"]
+[ext_resource type="Script" uid="uid://g310sr1hm23e" path="res://Сцени/1_этажналево.gd" id="1_yjim0"]
 [ext_resource type="Script" uid="uid://u1tlf3f5jp2u" path="res://player.gd" id="2_flltc"]
 [ext_resource type="Script" uid="uid://ba4bhxop01ags" path="res://Сцени/right_wall.gd" id="2_t6sle"]
 [ext_resource type="Texture2D" uid="uid://dvybl5hbdxwu3" path="res://Герои/hero.png" id="3_eui5g"]
@@ -8,11 +9,13 @@
 [ext_resource type="Script" uid="uid://b5nhekwsgec4h" path="res://Сцени/closed_door.gd" id="6_0jltq"]
 [ext_resource type="Script" uid="uid://b1d2j4s8nvv54" path="res://Сцени/arrow_up.gd" id="6_t6sle"]
 [ext_resource type="Script" uid="uid://bwcmxhtopp56c" path="res://Сцени/hud1.gd" id="8_0jltq"]
-[ext_resource type="Script" uid="uid://bowth80x73byk" path="res://Сцени/math.gd" id="8_o7ip1"]
+[ext_resource type="Script" path="res://Сцени/math.gd" id="8_o7ip1"]
 [ext_resource type="Texture2D" uid="uid://wa6nwavcg2au" path="res://Другое/Туалет.jpg" id="9_0jltq"]
 [ext_resource type="Script" uid="uid://si748jrbbned" path="res://Сцени/toilet_modal.gd" id="9_fa2lb"]
 [ext_resource type="Script" uid="uid://dh1xoy4otfh5s" path="res://Сцени/closed_modal.gd" id="10_t6sle"]
 [ext_resource type="Texture2D" uid="uid://cxx1ufi75jlp7" path="res://Другое/Закрито.jpeg" id="11_o7ip1"]
+[ext_resource type="Script" uid="uid://cd0qpviu4ub7y" path="res://Скрипты/coin.gd" id="15_rj0wx"]
+[ext_resource type="Texture2D" uid="uid://di4i3uxlxkut8" path="res://photo_ygki-removebg-preview.png" id="16_y3kvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnjqk"]
 size = Vector2(18, 258.5)
@@ -112,7 +115,11 @@ texture = ExtResource("9_0jltq")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7ip1"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ar3tf"]
+radius = 24.0
+
 [node name="1этажналева" type="Node2D"]
+script = ExtResource("1_yjim0")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-67.000244, 341)
@@ -309,5 +316,197 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_o7ip1")
 text = "✕"
 
+[node name="CoinLabel" type="Label" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 1155.0
+offset_top = 20.0
+offset_right = 1215.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+
 [node name="SpawnFromLeftC" type="Marker2D" parent="."]
 position = Vector2(735, 491)
+
+[node name="Coin" type="Area2D" parent="."]
+position = Vector2(-23, -2)
+script = ExtResource("15_rj0wx")
+coin_id = "27"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin2" type="Area2D" parent="."]
+position = Vector2(-223, -2)
+script = ExtResource("15_rj0wx")
+coin_id = "28"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin3" type="Area2D" parent="."]
+position = Vector2(-423, -2)
+script = ExtResource("15_rj0wx")
+coin_id = "29"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin4" type="Area2D" parent="."]
+position = Vector2(-623, -2)
+script = ExtResource("15_rj0wx")
+coin_id = "30"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin4"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin4"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin5" type="Area2D" parent="."]
+position = Vector2(-823, -2)
+script = ExtResource("15_rj0wx")
+coin_id = "31"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin5"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin5"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin6" type="Area2D" parent="."]
+position = Vector2(-1023, -2)
+script = ExtResource("15_rj0wx")
+coin_id = "32"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin6"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin6"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin7" type="Area2D" parent="."]
+position = Vector2(-1223, -2)
+script = ExtResource("15_rj0wx")
+coin_id = "33"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin7"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin7"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin8" type="Area2D" parent="."]
+position = Vector2(-1423, -2)
+script = ExtResource("15_rj0wx")
+coin_id = "34"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin8"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin8"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin9" type="Area2D" parent="."]
+position = Vector2(-1623, -2)
+script = ExtResource("15_rj0wx")
+coin_id = "35"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin9"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin9"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin10" type="Area2D" parent="."]
+position = Vector2(-1769, -31)
+script = ExtResource("15_rj0wx")
+coin_id = "36"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin10"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin10"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin11" type="Area2D" parent="."]
+position = Vector2(-1901, -90)
+script = ExtResource("15_rj0wx")
+coin_id = "37"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin11"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin11"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin12" type="Area2D" parent="."]
+position = Vector2(-91, -54)
+script = ExtResource("15_rj0wx")
+coin_id = "38"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin12"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin12"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
+
+[node name="Coin13" type="Area2D" parent="."]
+position = Vector2(-113, -130)
+script = ExtResource("15_rj0wx")
+coin_id = "39"
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin13"]
+position = Vector2(1070, 596)
+scale = Vector2(0.23259488, 0.18963878)
+texture = ExtResource("16_y3kvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin13"]
+position = Vector2(1068, 591)
+shape = SubResource("CircleShape2D_ar3tf")
