@@ -48,7 +48,6 @@ func _ready():
 	start_lesson()
 
 
-
 # ─────────────────────────────
 # СТАРТ
 # ─────────────────────────────
@@ -106,7 +105,7 @@ func show_task():
 		[
 			{"label":"Виконати", "callback": check_answer}
 		],
-		true # ← поле вводу
+		true  # інпут
 	)
 
 
@@ -139,6 +138,7 @@ func check_answer(value: String):
 func _normalize(s):
 	return s.strip_edges().replace("  ", " ")
 
+
 func _is_correct(code, arr):
 	var user = _normalize(code)
 	for a in arr:
@@ -148,34 +148,34 @@ func _is_correct(code, arr):
 
 
 # ─────────────────────────────
-# РЕАКЦІЇ НА ВІДПОВІДІ
+# РЕАКЦІЇ
 # ─────────────────────────────
+
 func task_correct1():
 	current_task += 1
 	show_or_end()
-	
+
+
 func task_correct():
 	modal.show_modal(
 		"ENTER… Вивід правильний.\nВикладач: «Добре!»",
 		[
-			{
-				"label":"Далі", "callback": task_correct1()
-			}
+			{"label":"Далі", "callback": func(): task_correct1()}
 		]
 	)
+
 
 func task_wrong1():
 	current_task += 1
 	show_or_end()
-	
+
+
 func task_wrong():
 	modal.show_modal(
 		"Помилка або пустий результат.\nВикладач: «Подивись на лапки та дужки!»",
 		[
 			{"label":"Спробувати знову", "callback": show_task},
-			{"label":"Наступна задача", "callback": task_wrong1
-
-			}
+			{"label":"Наступна задача", "callback": func(): task_wrong1()}
 		]
 	)
 
@@ -241,4 +241,4 @@ func end_lesson():
 
 func exit_scene():
 	is_lesson_done = true
-	get_tree().change_scene_to_file("res://хол.tscn")
+	get_tree().change_scene_to_file("res://Сцени/3этажналево.tscn")

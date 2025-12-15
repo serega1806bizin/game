@@ -182,7 +182,7 @@ shape = SubResource("RectangleShape2D_xcqia")
 [node name="Info" type="Area2D" parent="Interactables"]
 position = Vector2(-847, 368)
 script = ExtResource("5_pq1m7")
-target_scene = "res://Сцени/каб_физики.tscn"
+target_scene = "res://Сцени/каб_информатики.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Info"]
 position = Vector2(1713, -6)
