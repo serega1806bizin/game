@@ -1,13 +1,12 @@
-#MathLessonScene
 extends Control
 
 @onready var dialog = $DialogModal
 @onready var input_modal = $InputAnswerModal
 
-var stage = 0
-var currentIndex = 0
-var superTaskDone = false
-var isLessonDone = false
+var stage := 0
+var currentIndex := 0
+var superTaskDone := false
+var isLessonDone := false
 
 var mathTasks = [
 	{ "q": "3 * 4 + 6 / 2 = ?", "a": "15" },
@@ -19,12 +18,22 @@ var mathTasks = [
 var hardTask = { "q": "(12 + 6) / 3 * 4 - 7 = ?", "a": "13" }
 
 
+# ============================================================
+#                      READY
+# ============================================================
+
 func _ready():
+	# Заборона заходити двічі
+	if GameState.math_done:
+		await exit_scene_async()
+		return
+
 	startLesson()
 
 
+
 # ============================================================
-#                       СТАРТ УРОКУ
+#                      СТАРТ УРОКУ
 # ============================================================
 
 func startLesson():
@@ -40,16 +49,21 @@ func startLesson():
 			"Зробити вигляд, що не бачу"
 		]
 	)
+
+	# Без дублювання connect
+	if dialog.choice_selected.is_connected(_router):
+		dialog.choice_selected.disconnect(_router)
+
 	dialog.choice_selected.connect(_router)
 
 
+
 # ============================================================
-#                   ГОЛОВНИЙ РОУТЕР
+#                       РОУТЕР
 # ============================================================
 
 func _router(id):
 	match stage:
-
 		1: _intro(id)
 		2: _greeting_type(id)
 		3: _begin_lesson(id)
@@ -60,16 +74,14 @@ func _router(id):
 		7: _refuse_board(id)
 		8: _angry_silent(id)
 
-		# ЗАДАЧІ
-		100: pass # чекаємо вводу з InputAnswerModal
-
+		100: pass
 		110: _after_task_choice(id)
 		120: _final_choice(id)
 
 
 
 # ============================================================
-#                   ПРИВІТАННЯ
+#                       ПРИВІТАННЯ
 # ============================================================
 
 func _intro(id):
@@ -92,6 +104,7 @@ func _intro(id):
 		)
 
 
+
 func _greeting_type(id):
 	match id:
 		1: _begin_lesson_type("normal")
@@ -99,19 +112,19 @@ func _greeting_type(id):
 		3: _begin_lesson_type("weird")
 
 
+
 # ============================================================
-#           РЕАКЦІЯ ВИКЛАДАЧА + ПЕРЕД ДОШКОЮ
+#        РЕАКЦІЯ ТА ПЕРЕХІД ДО ДОШКИ
 # ============================================================
 
 func _begin_lesson_type(t):
-	var reaction = ""
+	var reaction := ""
 
 	match t:
 		"silent": reaction = "«Ну хоч так…»"
 		"normal": reaction = "«Приємно чути.»"
 		"flirt": reaction = "«Тримай себе в руках.»"
 		"weird": reaction = "«Ем… добре.»"
-		"suspicious": reaction = "«Я за тобою спостерігаю.»"
 
 	dialog.open_dialog(
 		reaction + "\n\nТебе викликають до дошки. Що робити?",
@@ -122,25 +135,31 @@ func _begin_lesson_type(t):
 			"Мовчати"
 		]
 	)
+
 	stage = 3
+
 
 
 func _begin_lesson(id):
 	match id:
 		1: _start_tasks()
+
 		2:
 			stage = 7
 			dialog.open_dialog("«Мінус 2 бали.»", ["Сісти"])
+
 		3:
 			stage = 4
 			dialog.open_dialog("«Погано вам? Справді?»", ["Так…", "Та це жарт"])
+
 		4:
 			stage = 8
 			dialog.open_dialog("«Мовчите? Це погано.»", ["Сісти"])
 
 
+
 # ============================================================
-#         ЛОГІКА ПЕРЕД ЗАДАЧАМИ (ГІЛКИ)
+#        ГІЛКИ ПЕРЕД ЗАДАЧАМИ
 # ============================================================
 
 func _pretend_sick(id):
@@ -152,29 +171,35 @@ func _pretend_sick(id):
 		dialog.open_dialog("«О, тепер точно до дошки!»", ["Добре"])
 
 
+
 func _fake_fail(id):
 	end_lesson()
+
 
 
 func _teacher_angry_joke(id):
 	_start_tasks()
 
 
+
 func _refuse_board(id):
 	end_lesson()
+
 
 
 func _angry_silent(id):
 	end_lesson()
 
 
+
 # ============================================================
-#                   СТАРТ ЗАДАЧ
+#                    СТАРТ ЗАДАЧ
 # ============================================================
 
 func _start_tasks():
 	currentIndex = 0
 	_show_next_task()
+
 
 
 func _show_next_task():
@@ -186,7 +211,12 @@ func _show_next_task():
 	stage = 100
 
 	input_modal.open_task("Завдання %d:\n%s" % [currentIndex + 1, task["q"]])
+
+	if input_modal.answer_submitted.is_connected(_check_task_answer):
+		input_modal.answer_submitted.disconnect(_check_task_answer)
+
 	input_modal.answer_submitted.connect(_check_task_answer)
+
 
 
 func _check_task_answer(v):
@@ -204,9 +234,11 @@ func _check_task_answer(v):
 		_wrong_task()
 
 
+
 func _correct_task():
 	dialog.open_dialog("«Правильно! Молодець.»", ["Далі"])
 	stage = 110
+
 
 
 func _wrong_task():
@@ -214,14 +246,17 @@ func _wrong_task():
 	stage = 110
 
 
+
 func _secret_meme():
 	dialog.open_dialog("«228? Ха-ха… ну хитрий ти.» +1 бал", ["Далі"])
 	stage = 110
 
 
+
 func _after_task_choice(id):
 	currentIndex += 1
 	_show_or_finish()
+
 
 
 func _show_or_finish():
@@ -238,8 +273,9 @@ func _show_or_finish():
 		_no_more_tasks()
 
 
+
 # ============================================================
-#            КОЛИ ЗАДАЧІ ЗАКІНЧИЛИСЬ
+#                ФІНАЛ ЗАДАЧ
 # ============================================================
 
 func _no_more_tasks():
@@ -253,6 +289,7 @@ func _no_more_tasks():
 	)
 
 
+
 func _final_choice(id):
 	if id == 1:
 		_show_hard_task()
@@ -260,26 +297,25 @@ func _final_choice(id):
 		end_lesson()
 
 
+
 # ============================================================
-#                  СУПЕРСКЛАДНА ЗАДАЧА
+#              СУПЕРСКЛАДНА ЗАДАЧА
 # ============================================================
 
 func _show_hard_task():
 	if superTaskDone:
 		dialog.open_dialog("«Супер задача вже була. Більше немає.»", ["Окей"])
-		dialog.open_dialog("Пара закінчилась.", ["Вийти"])
-		stage = 999
-		dialog.choice_selected.connect(_exit_after)
-
-		if dialog.choice_selected.is_connected(_router):
-			dialog.choice_selected.disconnect(_router)
-		dialog.choicыe_selected.connect(_router)
+		end_lesson()
 		return
-
 
 	stage = 200
 	input_modal.open_task("Супер задача:\n" + hardTask["q"])
+
+	if input_modal.answer_submitted.is_connected(_check_hard):
+		input_modal.answer_submitted.disconnect(_check_hard)
+
 	input_modal.answer_submitted.connect(_check_hard)
+
 
 
 func _check_hard(v):
@@ -294,16 +330,39 @@ func _check_hard(v):
 	stage = 120
 
 
+
 # ============================================================
-#                  КІНЕЦЬ УРОКУ
+#                   КІНЕЦЬ УРОКУ
 # ============================================================
 
 func end_lesson():
 	dialog.open_dialog("Пара закінчилась.", ["Вийти"])
 	stage = 999
-	dialog.choice_selected.connect(_exit_after)
+
+	if dialog.choice_selected.is_connected(exit_scene):
+		dialog.choice_selected.disconnect(exit_scene)
+
+	dialog.choice_selected.connect(exit_scene)
 
 
-func _exit_after(id):
-	get_tree().change_scene_to_file("res://Сцени/1этажналево.tscn")
+
+# ============================================================
+#                   ВИХІД З КАБІНЕТУ
+# ============================================================
+
+func exit_scene(id = 0):
+	await exit_scene_async()
+
+@onready var panel = $"../Panel"
+# --- корутина ---
+func exit_scene_async():
 	isLessonDone = true
+	GameState.math_done = true
+
+	# Запускаємо конфетті, якщо всі пари пройдені
+	if GameState.all_lessons_done():
+		await get_tree().create_timer(1.0).timeout
+		panel.visible = true
+		return
+
+	get_tree().change_scene_to_file("res://Сцени/1этажналево.tscn")

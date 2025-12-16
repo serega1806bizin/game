@@ -3,17 +3,26 @@ extends Node
 @onready var modal = $"../ModalDialog"
 @onready var lightning = $"../LightningCanvas"
 
-
 var lesson_done := false
 
 
 func _ready():
+	# Если урок уже был — сразу уходим
+	if GameState.physics_done:
+		await exit_scene_async()
+		return
+
 	start_lesson()
 
 
+
+# ============================================================
+#                        СТАРТ УРОКУ
+# ============================================================
+
 func start_lesson():
 	if lesson_done:
-		exit_scene()
+		await exit_scene_async()
 		return
 
 	modal.show_modal(
@@ -21,15 +30,19 @@ func start_lesson():
 		[
 			{"label":"Роздивитись ближче", "callback": func(): intro("normal")},
 			{"label":"Сісти тихенько", "callback": func(): intro("silent")},
-			{"label":"Відкласти урок", "callback": func(): exit_scene()}
+			{"label":"Відкласти урок", "callback": func(): exit_scene_async()}
 		]
 	)
 
 
-func intro(mode):
-	var t = "Ви нахиляєтесь ближче. Блискавки тягнуться до пальців." if mode == "normal" \
-	else "Ви сідаєте тихенько, але блискавки все одно дивляться на вас."
 
+func intro(mode):
+	var t := (
+		"Ви нахиляєтесь ближче. Блискавки тягнуться до пальців."
+		if mode == "normal"
+		else
+		"Ви сідаєте тихенько, але блискавки все одно дивляться на вас."
+	)
 
 	modal.show_modal(
 		t + "\n\nПара починається. Викладач вмикає кулю — вона спалахує.",
@@ -37,6 +50,7 @@ func intro(mode):
 			{"label":"Чекаю, що він скаже", "callback": teacher_intro}
 		]
 	)
+
 
 
 func teacher_intro():
@@ -49,10 +63,14 @@ func teacher_intro():
 	)
 
 
+
 func student_comment(mode):
-	var txt = "Одногрупник шепче:\n«Минулого року її включали — аж світло мигало.»" \
-		if mode == "observe" \
-		else "Одногрупник каже:\n«Минулого року її включали — аж мигало у всьому корпусі.»"
+	var txt := (
+		"Одногрупник шепче:\n«Минулого року її включали — аж світло мигало.»"
+		if mode == "observe"
+		else
+		"Одногрупник каже:\n«Минулого року її включали — аж мигало у всьому корпусі.»"
+	)
 
 	modal.show_modal(
 		txt,
@@ -73,6 +91,7 @@ func teacher_joke():
 	)
 
 
+
 func ask_touch():
 	modal.show_modal(
 		"Викладач:\n«Ну що, хто хоче доторкнутись?»",
@@ -85,14 +104,17 @@ func ask_touch():
 	)
 
 
+
 func touch():
 	lightning.trigger_lightning()
+
 	modal.show_modal(
 		"Ваш палець тягнеться до кулі. Блискавка легенько торкається шкіри.",
 		[
 			{"label":"О, прикольно!", "callback": teacher_beauty}
 		]
 	)
+
 
 
 func teacher_beauty():
@@ -104,6 +126,7 @@ func teacher_beauty():
 	)
 
 
+
 func joke_path():
 	modal.show_modal(
 		"Ви кажете:\n«А якщо потримати довше, світло зникне?»",
@@ -111,6 +134,7 @@ func joke_path():
 			{"label":"Чекати реакцію", "callback": teacher_jokes_back}
 		]
 	)
+
 
 
 func teacher_jokes_back():
@@ -123,6 +147,7 @@ func teacher_jokes_back():
 	)
 
 
+
 func serious():
 	modal.show_modal(
 		"Ви питаєте:\n«Чому блискавка тягнеться до пальця?»",
@@ -130,6 +155,7 @@ func serious():
 			{"label":"Слухати відповідь", "callback": teacher_physics}
 		]
 	)
+
 
 
 func teacher_physics():
@@ -141,6 +167,7 @@ func teacher_physics():
 	)
 
 
+
 func teacher_final():
 	modal.show_modal(
 		"Викладач:\n«Фізика — це чарівність пояснень.»",
@@ -149,31 +176,53 @@ func teacher_final():
 		]
 	)
 
-func refuse1():
-	lightning.trigger_lightning()
-	end_lesson()
+
 
 func refuse():
 	modal.show_modal(
 		"Ви кажете:\n«Та ні, я пас…»",
 		[
-			{
-				"label": "Спостерігати, як пробує інший",
-				"callback": refuse1
-			}
+			{"label":"Спостерігати, як пробує інший", "callback": refuse1}
 		]
 	)
 
+
+
+func refuse1():
+	lightning.trigger_lightning()
+	end_lesson()
+
+
+
+# ============================================================
+#                     КІНЕЦЬ УРОКУ
+# ============================================================
 
 func end_lesson():
 	modal.show_modal(
 		"Експеримент пройшов успішно.",
 		[
-			{"label":"Вийти", "callback": exit_scene}
+			{"label":"Вийти", "callback": exit_scene_async}
 		]
 	)
 
 
-func exit_scene():
+
+# ============================================================
+#                     ВИХІД З СЦЕНИ
+# ============================================================
+@onready var panel = $"../Panel"
+
+func exit_scene_async():
+	if lesson_done:
+		return
+
 	lesson_done = true
+	GameState.physics_done = true
+
+	if GameState.all_lessons_done():
+		await get_tree().create_timer(1.0).timeout
+		panel.visible = true
+		return
+
 	get_tree().change_scene_to_file("res://Сцени/2этажналево.tscn")

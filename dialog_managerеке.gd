@@ -4,7 +4,9 @@ extends Node
 
 var is_lesson_done := false
 
-# задачі
+# -----------------------------------------
+#      ЗАДАЧИ
+# -----------------------------------------
 var code_tasks = [
 	{
 		"id":"hello-world",
@@ -45,15 +47,21 @@ var current_task := 0
 
 
 func _ready():
+	# Если урок уже завершён — сразу выходим (без зависаний)
+	if GameState.informatics_done:
+		await exit_scene_async()
+		return
+
 	start_lesson()
 
 
-# ─────────────────────────────
-# СТАРТ
-# ─────────────────────────────
+# ============================================================
+#                      СТАРТ УРОКА
+# ============================================================
+
 func start_lesson():
 	if is_lesson_done:
-		exit_scene()
+		await exit_scene_async()
 		return
 
 	current_task = 0
@@ -84,9 +92,10 @@ func teacher_intro():
 	)
 
 
-# ─────────────────────────────
-# ПОЧАТОК ПРАКТИКИ
-# ─────────────────────────────
+# ============================================================
+#                     ЗАДАЧИ
+# ============================================================
+
 func start_code_practice():
 	current_task = 0
 	show_task()
@@ -105,16 +114,18 @@ func show_task():
 		[
 			{"label":"Виконати", "callback": check_answer}
 		],
-		true  # інпут
+		true  # есть input
 	)
 
 
 func check_answer(value: String):
 	value = value.strip_edges()
 
+	# Секретка =)
 	if value == "228" or value == "console.log(228)":
 		return secret_meme()
 
+	# Пусто
 	if value == "":
 		return modal.show_modal(
 			"Консоль мовчить. Команда порожня.",
@@ -132,9 +143,6 @@ func check_answer(value: String):
 	task_wrong()
 
 
-# ─────────────────────────────
-# ПЕРЕВІРКА
-# ─────────────────────────────
 func _normalize(s):
 	return s.strip_edges().replace("  ", " ")
 
@@ -147,9 +155,9 @@ func _is_correct(code, arr):
 	return false
 
 
-# ─────────────────────────────
-# РЕАКЦІЇ
-# ─────────────────────────────
+# ============================================================
+#                     РЕАКЦИИ
+# ============================================================
 
 func task_correct1():
 	current_task += 1
@@ -230,15 +238,31 @@ func ultra_task_info():
 	)
 
 
+# ============================================================
+#                     КОНЕЦ УРОКА
+# ============================================================
+
 func end_lesson():
 	modal.show_modal(
 		"Пара закінчується…",
 		[
-			{"label":"Вийти з кабінету", "callback": exit_scene}
+			{"label":"Вийти з кабінету", "callback": exit_scene_async}
 		]
 	)
 
+@onready var panel = $"../Panel"
 
-func exit_scene():
+func exit_scene_async():
+	if is_lesson_done:
+		return
+
 	is_lesson_done = true
+	GameState.informatics_done = true
+
+	# Конфетти если ВСЕ пары пройдены
+	if GameState.all_lessons_done():
+		await get_tree().create_timer(1.0).timeout
+		panel.visible = true
+		return
+
 	get_tree().change_scene_to_file("res://Сцени/3этажналево.tscn")

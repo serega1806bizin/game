@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8v7mwospvkyp"]
+[gd_scene load_steps=9 format=3 uid="uid://b8v7mwospvkyp"]
 
 [ext_resource type="Script" uid="uid://bcm1x31wvpjkg" path="res://Сцени/каб_математики.gd" id="1_c5iv1"]
 [ext_resource type="Texture2D" uid="uid://b112lkxsaai4n" path="res://Сцени/кабМатем.png" id="2_txjja"]
 [ext_resource type="Script" uid="uid://b7s3kgiqu1tyo" path="res://Сцени/dialog_modal-матем.gd" id="3_811al"]
 [ext_resource type="Script" uid="uid://7ymhggeggcmt" path="res://Сцени/input_answer_modal-матем.gd" id="4_ggr68"]
+[ext_resource type="Texture2D" uid="uid://dlrwa35wojb8j" path="res://Другое/поздрав.png" id="5_txjja"]
+[ext_resource type="Script" uid="uid://b37xy5ibpaakr" path="res://Сцени/panelgfd.gd" id="6_811al"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_811al"]
+texture = ExtResource("5_txjja")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggr68"]
+bg_color = Color(0.3334232, 0.6534003, 0.7264453, 1)
 
 [node name="КабМатематики" type="Node2D"]
 
@@ -113,3 +121,52 @@ offset_right = 644.0
 offset_bottom = 428.0
 theme_override_font_sizes/font_size = 40
 text = "Підтвердити"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 26.0
+offset_top = 34.0
+offset_right = 1256.0
+offset_bottom = 704.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_811al")
+script = ExtResource("6_811al")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 41.0
+offset_right = 1171.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(4.813075e-07, 0.20987791, 0.58331436, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ggr68")
+text = "ВІТАЄМО! ТИ ПРОЙШОВ ГРУ! 🎉"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 215.0
+offset_right = 1182.0
+offset_bottom = 337.0
+theme_override_colors/font_color = Color(4.813075e-07, 0.20987791, 0.58331436, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ggr68")
+text = "“Дякуємо, що провів день з нами. Ти гідний стати нашим студентом”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 421.0
+offset_right = 1209.0
+offset_bottom = 521.0
+theme_override_colors/font_color = Color(0.48595577, 0.01920713, 0.09764262, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ggr68")
+text = "Запрошуємо тебе на навчання"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

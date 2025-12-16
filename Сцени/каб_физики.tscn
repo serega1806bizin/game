@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1b0kgmg2oiqt"]
+[gd_scene load_steps=9 format=3 uid="uid://b1b0kgmg2oiqt"]
 
 [ext_resource type="Texture2D" uid="uid://btmi63gf8luvt" path="res://Сцени/кабФизики.png" id="1_yexra"]
 [ext_resource type="Script" uid="uid://c77hglfl4k3uh" path="res://Скрипты/dialog_modal_физика.gd" id="3_1w8fl"]
 [ext_resource type="Script" uid="uid://l7rct0hj53u8" path="res://Сцени/lightning_canvas.gd" id="4_3wnpb"]
+[ext_resource type="Texture2D" uid="uid://dlrwa35wojb8j" path="res://Другое/поздрав.png" id="5_r7fqb"]
 [ext_resource type="Script" uid="uid://dje5mwd2k6v26" path="res://Сцени/dialog_manager.gd" id="5_ukdsp"]
+[ext_resource type="Script" uid="uid://b37xy5ibpaakr" path="res://Сцени/panelgfd.gd" id="6_1w8fl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3wnpb"]
+texture = ExtResource("5_r7fqb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukdsp"]
+bg_color = Color(0.3334232, 0.6534003, 0.7264453, 1)
 
 [node name="кабФизики" type="Node2D"]
 
@@ -90,3 +98,53 @@ script = ExtResource("4_3wnpb")
 
 [node name="DialogManager" type="Node" parent="UI/HUD"]
 script = ExtResource("5_ukdsp")
+
+[node name="Panel" type="Panel" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 34.0
+offset_right = 1256.0
+offset_bottom = 704.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_3wnpb")
+script = ExtResource("6_1w8fl")
+
+[node name="Label" type="Label" parent="UI/HUD/Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 41.0
+offset_right = 1171.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(4.813075e-07, 0.20987791, 0.58331436, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukdsp")
+text = "ВІТАЄМО! ТИ ПРОЙШОВ ГРУ! 🎉"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/HUD/Panel"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 215.0
+offset_right = 1182.0
+offset_bottom = 337.0
+theme_override_colors/font_color = Color(4.813075e-07, 0.20987791, 0.58331436, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukdsp")
+text = "“Дякуємо, що провів день з нами. Ти гідний стати нашим студентом”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="UI/HUD/Panel"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 421.0
+offset_right = 1209.0
+offset_bottom = 521.0
+theme_override_colors/font_color = Color(0.48595577, 0.01920713, 0.09764262, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukdsp")
+text = "Запрошуємо тебе на навчання"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

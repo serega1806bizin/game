@@ -101,9 +101,9 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_346us")
 text = "Я - майбутній студент"
 script = ExtResource("3_346us")
 current_panel_path = NodePath("..")
-form_path = NodePath("../../Форма")
+form_path = NodePath("../../Forma")
 
-[node name="Форма" type="Panel" parent="Panel2"]
+[node name="Forma" type="Panel" parent="Panel2"]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -117,7 +117,7 @@ offset_right = 906.68396
 offset_bottom = 188.40411
 theme_override_styles/panel = SubResource("StyleBoxTexture_wvwcu")
 
-[node name="Label5" type="Label" parent="Panel2/Форма"]
+[node name="Label5" type="Label" parent="Panel2/Forma"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.028
@@ -133,14 +133,14 @@ theme_override_font_sizes/font_size = 30
 text = "Контакт"
 autowrap_mode = 2
 
-[node name="Contact" type="LineEdit" parent="Panel2/Форма"]
+[node name="Contact" type="LineEdit" parent="Panel2/Forma"]
 layout_mode = 0
 offset_left = 834.01196
 offset_top = 451.175
 offset_right = 1177.0
 offset_bottom = 495.175
 
-[node name="Label" type="Label" parent="Panel2/Форма"]
+[node name="Label" type="Label" parent="Panel2/Forma"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.028
@@ -156,7 +156,7 @@ theme_override_font_sizes/font_size = 50
 text = "Привіт, розкажи трішки про тебе!"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Panel2/Форма"]
+[node name="Label2" type="Label" parent="Panel2/Forma"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.028
@@ -172,7 +172,7 @@ theme_override_font_sizes/font_size = 30
 text = "Імя"
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="Panel2/Форма"]
+[node name="Label3" type="Label" parent="Panel2/Forma"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.028
@@ -188,21 +188,21 @@ theme_override_font_sizes/font_size = 30
 text = "З якої школи"
 autowrap_mode = 2
 
-[node name="Name" type="LineEdit" parent="Panel2/Форма"]
+[node name="Name" type="LineEdit" parent="Panel2/Forma"]
 layout_mode = 0
 offset_left = 219.0
 offset_top = 454.0
 offset_right = 474.0
 offset_bottom = 498.0
 
-[node name="School" type="LineEdit" parent="Panel2/Форма"]
+[node name="School" type="LineEdit" parent="Panel2/Forma"]
 layout_mode = 0
 offset_left = 517.0
 offset_top = 452.0
 offset_right = 791.0
 offset_bottom = 496.0
 
-[node name="Spec" type="OptionButton" parent="Panel2/Форма"]
+[node name="Spec" type="OptionButton" parent="Panel2/Forma"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.011000001
@@ -227,7 +227,7 @@ popup/item_5/id = 4
 popup/item_6/text = "Секретарська та офісна справа"
 popup/item_6/id = 6
 
-[node name="Label4" type="Label" parent="Panel2/Форма"]
+[node name="Label4" type="Label" parent="Panel2/Forma"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.028
@@ -243,7 +243,7 @@ theme_override_font_sizes/font_size = 30
 text = "На яку спеціальність хочеш вступати?"
 autowrap_mode = 2
 
-[node name="CheckButton" type="CheckButton" parent="Panel2/Форма"]
+[node name="CheckButton" type="CheckButton" parent="Panel2/Forma"]
 layout_mode = 0
 offset_left = 222.0
 offset_top = 618.0
@@ -257,7 +257,7 @@ theme_override_colors/font_hover_pressed_color = Color(0.19607843, 0.1764706, 0.
 theme_override_font_sizes/font_size = 27
 text = "Хочу отримати інформацію про вступ"
 
-[node name="Начать игру" type="Button" parent="Panel2/Форма"]
+[node name="Начать игру" type="Button" parent="Panel2/Forma"]
 layout_mode = 0
 offset_left = 855.0
 offset_top = 571.0

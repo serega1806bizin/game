@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bjilndyqcty10"]
+[gd_scene load_steps=38 format=3 uid="uid://bjilndyqcty10"]
 
 [ext_resource type="Texture2D" uid="uid://egymrbxh2fas" path="res://Сцени/1этажналево.png" id="1_4imed"]
 [ext_resource type="Script" uid="uid://g310sr1hm23e" path="res://Сцени/1_этажналево.gd" id="1_yjim0"]
@@ -9,9 +9,10 @@
 [ext_resource type="Script" uid="uid://b5nhekwsgec4h" path="res://Сцени/closed_door.gd" id="6_0jltq"]
 [ext_resource type="Script" uid="uid://b1d2j4s8nvv54" path="res://Сцени/arrow_up.gd" id="6_t6sle"]
 [ext_resource type="Script" uid="uid://bwcmxhtopp56c" path="res://Сцени/hud1.gd" id="8_0jltq"]
-[ext_resource type="Script" path="res://Сцени/math.gd" id="8_o7ip1"]
+[ext_resource type="Script" uid="uid://bowth80x73byk" path="res://Сцени/math.gd" id="8_o7ip1"]
 [ext_resource type="Texture2D" uid="uid://wa6nwavcg2au" path="res://Другое/Туалет.jpg" id="9_0jltq"]
 [ext_resource type="Script" uid="uid://si748jrbbned" path="res://Сцени/toilet_modal.gd" id="9_fa2lb"]
+[ext_resource type="Texture2D" uid="uid://b54et22w2o1j2" path="res://Другое/a1c8a9a7adb41f723b6a7aa084b55aef-removebg-preview.png" id="10_rj0wx"]
 [ext_resource type="Script" uid="uid://dh1xoy4otfh5s" path="res://Сцени/closed_modal.gd" id="10_t6sle"]
 [ext_resource type="Texture2D" uid="uid://cxx1ufi75jlp7" path="res://Другое/Закрито.jpeg" id="11_o7ip1"]
 [ext_resource type="Script" uid="uid://cd0qpviu4ub7y" path="res://Скрипты/coin.gd" id="15_rj0wx"]
@@ -229,6 +230,11 @@ target_scene = "res://Сцени/каб_математики.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Math"]
 position = Vector2(1, -9)
 shape = SubResource("RectangleShape2D_0aw75")
+
+[node name="!" type="Sprite2D" parent="Interactables/Math"]
+position = Vector2(834, 398)
+scale = Vector2(0.18611111, 0.23333333)
+texture = ExtResource("10_rj0wx")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

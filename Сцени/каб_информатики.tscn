@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ovtijnj1jcf6"]
+[gd_scene load_steps=12 format=3 uid="uid://ovtijnj1jcf6"]
 
 [ext_resource type="Texture2D" uid="uid://bji4vpt2ovymc" path="res://Сцени/каб_информатики.png" id="1_hbh3e"]
 [ext_resource type="Script" uid="uid://cem3fg48gcuhq" path="res://modal_dialog454.gd" id="2_uvu0g"]
 [ext_resource type="Script" uid="uid://cdym7vtw7e2q" path="res://dialog_managerеке.gd" id="3_33448"]
+[ext_resource type="Texture2D" uid="uid://dlrwa35wojb8j" path="res://Другое/поздрав.png" id="4_33448"]
+[ext_resource type="Script" uid="uid://b37xy5ibpaakr" path="res://Сцени/panelgfd.gd" id="5_0o8iw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbh3e"]
 bg_color = Color(0.34901962, 0.68235296, 0.47843137, 1)
@@ -15,6 +17,12 @@ bg_color = Color(0.35010967, 0.6814023, 0.48005718, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o8iw"]
 bg_color = Color(0.34901962, 0.68235296, 0.47843137, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jpcae"]
+texture = ExtResource("4_33448")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3e3p"]
+bg_color = Color(0.3334232, 0.6534003, 0.7264453, 1)
 
 [node name="каб_информатики" type="Node2D"]
 
@@ -105,3 +113,53 @@ text = "ждошорджло"
 
 [node name="DialogManager" type="Node" parent="UI/HUD"]
 script = ExtResource("3_33448")
+
+[node name="Panel" type="Panel" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 34.0
+offset_right = 1256.0
+offset_bottom = 704.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jpcae")
+script = ExtResource("5_0o8iw")
+
+[node name="Label" type="Label" parent="UI/HUD/Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 41.0
+offset_right = 1171.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(4.813075e-07, 0.20987791, 0.58331436, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_h3e3p")
+text = "ВІТАЄМО! ТИ ПРОЙШОВ ГРУ! 🎉"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/HUD/Panel"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 215.0
+offset_right = 1182.0
+offset_bottom = 337.0
+theme_override_colors/font_color = Color(4.813075e-07, 0.20987791, 0.58331436, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_h3e3p")
+text = "“Дякуємо, що провів день з нами. Ти гідний стати нашим студентом”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="UI/HUD/Panel"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 421.0
+offset_right = 1209.0
+offset_bottom = 521.0
+theme_override_colors/font_color = Color(0.48595577, 0.01920713, 0.09764262, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_h3e3p")
+text = "Запрошуємо тебе на навчання"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

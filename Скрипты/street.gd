@@ -4,6 +4,7 @@ extends Node2D
 												  # если не так — скажи, посмотрим точный
 
 func _ready():
+
 	# Автоматически подключаем ВСЕ монетки
 	for c in get_tree().get_nodes_in_group("coins"):
 		c.collected.connect(_on_coin_collected)

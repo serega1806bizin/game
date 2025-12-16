@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnw4dig2intwq"
-path="res://.godot/imported/npc-уличний-3.png-8ecc302b354e3d3ada3b75b55699d693.ctex"
+uid="uid://dlrwa35wojb8j"
+path="res://.godot/imported/поздрав.png-a61019ec7cd4edf382005780f7354041.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Герои/npc-уличний-3.png"
-dest_files=["res://.godot/imported/npc-уличний-3.png-8ecc302b354e3d3ada3b75b55699d693.ctex"]
+source_file="res://Другое/поздрав.png"
+dest_files=["res://.godot/imported/поздрав.png-a61019ec7cd4edf382005780f7354041.ctex"]
 
 [params]
 

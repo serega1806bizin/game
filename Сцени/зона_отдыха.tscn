@@ -178,7 +178,7 @@ offset_top = 358.0
 offset_right = 729.0
 offset_bottom = 408.0
 theme_override_font_sizes/font_size = 30
-text = "выйти"
+text = "вийти"
 script = ExtResource("4_k3lh4")
 
 [node name="DialogModal" type="Control" parent="UI/HUD"]
