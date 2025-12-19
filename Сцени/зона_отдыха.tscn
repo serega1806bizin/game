@@ -148,7 +148,7 @@ offset_top = 118.0
 offset_right = 696.243
 offset_bottom = 166.173
 theme_override_font_sizes/font_size = 30
-text = "🥪 Сісти їсти бутерброд"
+text = "Сісти їсти бутерброд"
 
 [node name="Talk" type="Button" parent="UI/HUD/ChooseModal/Panel"]
 layout_mode = 0
@@ -157,7 +157,7 @@ offset_top = 210.0
 offset_right = 725.0
 offset_bottom = 273.0
 theme_override_font_sizes/font_size = 30
-text = "🗣 Поговорити з кимось"
+text = "Поговорити з кимось"
 
 [node name="Chill" type="Button" parent="UI/HUD/ChooseModal/Panel"]
 layout_mode = 1
@@ -169,7 +169,7 @@ offset_top = 288.0
 offset_right = 677.694
 offset_bottom = 322.987
 theme_override_font_sizes/font_size = 30
-text = "😴 Просто відпочити"
+text = "Просто відпочити"
 
 [node name="Button" type="Button" parent="UI/HUD/ChooseModal/Panel"]
 layout_mode = 0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b844aqmwon1as"
-path="res://.godot/imported/npc-уличний.png-7082f765bc2b37c8501ac62ba0c9997b.ctex"
+uid="uid://bo4lcgetuiihq"
+path="res://.godot/imported/free-icon-up-arrow-6469473.svg-2b69c961a2a79e254b595e5189e5e271.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Герои/npc-уличний.png"
-dest_files=["res://.godot/imported/npc-уличний.png-7082f765bc2b37c8501ac62ba0c9997b.ctex"]
+source_file="res://free-icon-up-arrow-6469473.svg"
+dest_files=["res://.godot/imported/free-icon-up-arrow-6469473.svg-2b69c961a2a79e254b595e5189e5e271.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

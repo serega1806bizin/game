@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cl3nkps3t2d2c"]
+[gd_scene load_steps=61 format=3 uid="uid://cl3nkps3t2d2c"]
 
 [ext_resource type="Texture2D" uid="uid://ttlsfjdmtmhn" path="res://Сцени/Вулиця.png" id="1_dk6dy"]
 [ext_resource type="Script" uid="uid://chcnhf7nnisgh" path="res://Скрипты/street.gd" id="1_epv1x"]
@@ -12,18 +12,23 @@
 [ext_resource type="Script" uid="uid://brdfe6juxyvc2" path="res://Скрипты/shop.gd" id="8_jbwvu"]
 [ext_resource type="Script" uid="uid://bta3egg2a8o8a" path="res://Скрипты/npc_girl.gd" id="9_lwdo1"]
 [ext_resource type="Script" uid="uid://br6yyhjcuua48" path="res://Скрипты/hud.gd" id="9_m54cn"]
-[ext_resource type="Texture2D" uid="uid://b844aqmwon1as" path="res://Герои/npc-уличний.png" id="10_5gkhs"]
+[ext_resource type="Texture2D" uid="uid://b844aqmwon1as" path="res://Герои/npc-уличний.png" id="10_5gkhs"]
 [ext_resource type="Script" uid="uid://b36hikp4fe7n5" path="res://Скрипты/shop_modal.gd" id="10_jqrss"]
 [ext_resource type="Texture2D" uid="uid://b54et22w2o1j2" path="res://Другое/a1c8a9a7adb41f723b6a7aa084b55aef-removebg-preview.png" id="10_snkep"]
 [ext_resource type="Script" uid="uid://cq6d6bvsber0q" path="res://Скрипты/college_door.gd" id="11_0eujd"]
 [ext_resource type="Texture2D" uid="uid://bl366t8tgibt5" path="res://Другое/choose.png" id="11_lwdo1"]
 [ext_resource type="Script" uid="uid://nfqihnbsavwq" path="res://Скрипты/dialog_modal.gd" id="14_mjlgn"]
-[ext_resource type="Script" uid="uid://dnwq7n3ukg0hw" path="res://Скрипты/virtual_joystick.gd" id="15_j4l5r"]
-[ext_resource type="Texture2D" uid="uid://bijyi2822smmb" path="res://Герои/npc-уличний-2.png" id="16_i1wjx"]
-[ext_resource type="Texture2D" uid="uid://dnw4dig2intwq" path="res://Герои/npc-уличний-3.png" id="17_0eujd"]
-[ext_resource type="Texture2D" uid="uid://bh20c2qov42o5" path="res://Герои/npc-уличний-4.png" id="18_adjms"]
+[ext_resource type="Script" path="res://Скрипты/virtual_joystick.gd" id="15_j4l5r"]
+[ext_resource type="Texture2D" uid="uid://bijyi2822smmb" path="res://Герои/npc-уличний-2.png" id="16_i1wjx"]
+[ext_resource type="Texture2D" uid="uid://dnw4dig2intwq" path="res://Герои/npc-уличний-3.png" id="17_0eujd"]
+[ext_resource type="Texture2D" uid="uid://bh20c2qov42o5" path="res://Герои/npc-уличний-4.png" id="18_adjms"]
 [ext_resource type="Script" uid="uid://cd0qpviu4ub7y" path="res://Скрипты/coin.gd" id="20_adjms"]
+[ext_resource type="Script" uid="uid://cbcdu403jovbt" path="res://Скрипты/d_pad.gd" id="20_nh88p"]
+[ext_resource type="Texture2D" uid="uid://ll7nt7qj006u" path="res://free-icon-back-left-arrow-circular-button-outline-54623.svg" id="21_lln1f"]
+[ext_resource type="Texture2D" uid="uid://iw18pbvq1t0h" path="res://free-icon-right-arrow-circular-button-outline-54240.svg" id="22_et6wx"]
 [ext_resource type="Texture2D" uid="uid://di4i3uxlxkut8" path="res://photo_ygki-removebg-preview.png" id="22_snkep"]
+[ext_resource type="Texture2D" uid="uid://bo4lcgetuiihq" path="res://free-icon-up-arrow-6469473.svg" id="23_b5rr3"]
+[ext_resource type="Texture2D" uid="uid://fcct3s6qt7uw" path="res://free-icon-down-arrow-570222.svg" id="24_4vy5t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83x7t"]
 size = Vector2(4, 160)
@@ -172,6 +177,14 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nh88p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tplin"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rre7v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvxsr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3wh2c"]
 radius = 23.194826
@@ -481,6 +494,40 @@ offset_bottom = 89.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "0"
+
+[node name="DPad" type="Control" parent="UI/HUD"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("20_nh88p")
+
+[node name="BtnLeft" type="TouchScreenButton" parent="UI/HUD/DPad"]
+position = Vector2(13, 535)
+scale = Vector2(4.5, 4.5)
+texture_normal = ExtResource("21_lln1f")
+shape = SubResource("CircleShape2D_nh88p")
+action = "move_left"
+
+[node name="BtnRight" type="TouchScreenButton" parent="UI/HUD/DPad"]
+position = Vector2(302, 541)
+scale = Vector2(4.5, 4.5)
+texture_normal = ExtResource("22_et6wx")
+shape = SubResource("CircleShape2D_tplin")
+action = "move_right"
+
+[node name="BtnUp" type="TouchScreenButton" parent="UI/HUD/DPad"]
+position = Vector2(156, 400)
+scale = Vector2(4.5, 4.5)
+texture_normal = ExtResource("23_b5rr3")
+shape = SubResource("CircleShape2D_rre7v")
+action = "move_up"
+
+[node name="BtnDown" type="TouchScreenButton" parent="UI/HUD/DPad"]
+position = Vector2(156, 536)
+scale = Vector2(4.5, 4.5)
+texture_normal = ExtResource("24_4vy5t")
+shape = SubResource("CircleShape2D_mvxsr")
+action = "move_down"
 
 [node name="NpcУличний2" type="Sprite2D" parent="."]
 position = Vector2(88.00001, 555.25)
